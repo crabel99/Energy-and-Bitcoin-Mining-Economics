@@ -400,7 +400,14 @@ This is not an entirely accurate assumption but considering the inaccuracies in 
 \end{definition}
 
 We observe that by Definition \ref{def:2} it is impossible to have a negative time step because the MTP rule invalidates any blocks which would have a negative time step.
-Additionally, when we look at the data contained in the blockchain, we find that $\Delta t_i \sim \mbox{Gamma}(\alpha, \beta)$ and that the hashrate is $H_i \sim \mbox{Inv-Gamma}(\alpha_H, \beta_H)$.
+Additionally, when we look at the data contained in the blockchain, we find that $\Delta t_i \sim \mbox{Gamma}(\alpha, \beta)$, ($\alpha = 6.09, \beta = 1.10\times 10^{-2}$ for blocks 195012-200000 See Figure \ref{fig:4}) and that the hashrate is $H_i \sim \mbox{Inv-Gamma}(\alpha_H, \beta_H)$.
+\begin{figure}
+    \includegraphics[width=\textwidth]{Block MTP Empirical Distribution Fit.png}
+    \caption{
+        Estimating the empirical distribution of the MTP block time for blocks 195012-200000.
+        Fitted model is $\Gamma(\alpha,\beta)$ where $\alpha = 6.09$ and $\beta = 1.10\times 10^{-2}$.
+    }\label{fig:4}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Computing Marginal Utility

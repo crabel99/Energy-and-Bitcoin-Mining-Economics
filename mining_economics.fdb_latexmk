@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex mining_economics"] 1639582004 "mining_economics.aux" "mining_economics.bbl" "mining_economics" 1639582417
+["bibtex mining_economics"] 1639587561 "mining_economics.aux" "mining_economics.bbl" "mining_economics" 1639587564
   "./splncs04.bst" 1521136946 33694 182740d5d784dd29ee55be34dddd4ccc ""
-  "mining_economics.aux" 1639582416 5514 de79908ed46f98aba081e0dc66c80676 "pdflatex"
+  "mining_economics.aux" 1639587563 5829 7e8902947e63f71793090ef7698a59e7 "pdflatex"
   "mining_economics.bib" 1639513995 5525 c127e24006aa15145b28f6cf8325b896 ""
   (generated)
   "mining_economics.bbl"
   "mining_economics.blg"
-["pdflatex"] 1639582414 "/Users/crabel/Documents/src/Papers/Energy and Bitcoin Mining Economics/mining_economics.tex" "mining_economics.pdf" "mining_economics" 1639582417
-  "/Users/crabel/Documents/src/Papers/Energy and Bitcoin Mining Economics/mining_economics.tex" 1639582413 47042 ac790711c48bbc99a98206c629b7f275 ""
+["pdflatex"] 1639587562 "/Users/crabel/Documents/src/Papers/Energy and Bitcoin Mining Economics/mining_economics.tex" "mining_economics.pdf" "mining_economics" 1639587564
+  "/Users/crabel/Documents/src/Papers/Energy and Bitcoin Mining Economics/mining_economics.tex" 1639587556 47483 cd48059cddc1bc13c5df2a0fa96fcf75 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/jknappen/ec/tcrm0900.tfm" 1136768653 1536 c4f439db76ef96a9c53bc437f35ffe20 ""
@@ -66,11 +66,12 @@
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
   "48-years-processor-trend.pdf" 1639066928 21486 b133e3dedf7f9ac2e3cad765dad3d62d ""
   "BTC Mining Performance.png" 1636999669 46418 8e91fe0d2afb1a960f38c3c8cc4c7997 ""
+  "Block MTP Empirical Distribution Fit.png" 1639587356 63832 e34d3ea652e294ff6255fc9021bb9c84 ""
   "Processor Forecast.png" 1636999946 27050 c86e89791e5ffe665d3ce555296379f0 ""
   "llncs.cls" 1521136900 43467 a21466011e5ed5d4c3f1d5a9af897395 ""
-  "mining_economics.aux" 1639582416 5514 de79908ed46f98aba081e0dc66c80676 "pdflatex"
-  "mining_economics.bbl" 1639582004 3587 94b965eadf491933206b7339cb51ef82 "bibtex mining_economics"
-  "mining_economics.tex" 1639582413 47042 ac790711c48bbc99a98206c629b7f275 ""
+  "mining_economics.aux" 1639587563 5829 7e8902947e63f71793090ef7698a59e7 "pdflatex"
+  "mining_economics.bbl" 1639587562 3587 94b965eadf491933206b7339cb51ef82 "bibtex mining_economics"
+  "mining_economics.tex" 1639587556 47483 cd48059cddc1bc13c5df2a0fa96fcf75 ""
   (generated)
   "mining_economics.aux"
   "mining_economics.log"
