@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: mining_economics.aux
+The style file: splncs04.bst
+Database file #1: mining_economics.bib
+You've used 18 entries,
+            2850 wiz_defined-function locations,
+            692 strings with 7089 characters,
+and the built_in function-call counts, 6737 in all, are:
+= -- 524
+> -- 146
+< -- 4
++ -- 65
+- -- 44
+* -- 372
+:= -- 886
+add.period$ -- 20
+call.type$ -- 18
+change.case$ -- 86
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 639
+empty$ -- 732
+format.name$ -- 47
+if$ -- 1481
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 128
+newline$ -- 60
+num.names$ -- 36
+pop$ -- 279
+preamble$ -- 1
+purify$ -- 58
+quote$ -- 0
+skip$ -- 155
+stack$ -- 0
+substring$ -- 294
+swap$ -- 283
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 66
+warning$ -- 0
+while$ -- 57
+width$ -- 20
+write$ -- 196
