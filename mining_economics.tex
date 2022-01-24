@@ -15,7 +15,7 @@
 
 \begin{document}
 %
-\title{Integrated Power Plant and Bitcoin Mining Economics}
+\title{Integrated Power Plant and Bitcoin Mining Economics\thanks{The author thanks Roman Pavlov for inviting him to write this paper.}}
 %
 \titlerunning{Bitcoin Mining Economics}
 %
@@ -23,21 +23,21 @@
 %
 \authorrunning{C. Abel}
 %
-\institute{Skylane Engineering, LLC, Atlanta GA 30306, USA 
-\email{crabel@skylaneengineering.com}\\
-\url{https://skylaneengineering.com}}
+\institute{Skylane Engineering, LLC, Atlanta, GA 30345, USA
+    \email{crabel@skylaneengineering.com}\\
+    \url{https://skylaneengineering.com}}
 %
 \maketitle
 %
 \begin{abstract}
-Bitcoin mining can be a difficult process to understand much less model.
-It is confounded by currency exchange rates and jurisdictional taxes along with rapid historical technological development.
-This paper derives a framework for simplifying the modeling process.
-It does so by first modeling trends in bitcoin miner performance showing that further gains in efficiency have plateaued.
-It then derives the marginal utility of bitcoin treating the process of the block reward in a quantum mechanical framework.
-Using the derived marginal utility, we present a universal cost basis and derive the economic model that formally takes into account uncertainty.
-%
-\keywords{bitcoin mining \and quantum mechanics \and statistical economics \and EROI \and Moore's Law.}
+    Bitcoin mining can be a difficult process to understand much less model.
+    It is confounded by currency exchange rates and jurisdictional taxes along with rapid historical technological development.
+    This paper derives a framework for simplifying the modeling process.
+    It does so by first modeling trends in bitcoin miner performance showing that further gains in efficiency have plateaued.
+    It then derives the marginal utility of bitcoin treating the process of the block reward in a quantum mechanical framework.
+    Using the derived marginal utility, we present a universal cost basis and derive the economic model that formally takes into account uncertainty.
+    %
+    \keywords{bitcoin mining \and quantum mechanics \and statistical economics \and EROI \and Moore's Law.}
 \end{abstract}
 
 
@@ -52,7 +52,9 @@ The primary objective of this paper is to arrive at a methodology that is firmly
 
 One of the chief problems that bitcoin has had is in managing the exchange rates and price fluctuations.
 This has existed because the primary unit of account has not been fundamental and was tied to directly fiat currency.
-The primary objective of this paper is to establish a universal and absolute measure of bitcoin's utility.
+The primary objective of this paper is to establish a universal and absolute measure of bitcoin's utility.\footnote{
+    For the code and data used to analyze the models see https://github.com/crabel99/BTC-Mining-Economics
+}
 
 This is far easier said than done.
 We need to understand how processing technology has evolved over time.
@@ -85,7 +87,7 @@ The single most important parameter is the energy utilization of the chip per op
 % The Classical Limit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{The Classical Limit}
-When we start talking about \emph{nm} level scales we are talking about the something on the order of the size of several atoms.
+When we start talking about \emph{nanometer} level scales we are talking about the something on the order of the size of several atoms.
 So to put some perspective on the scale, we will consider the classical limit of an electron as being its DeBroglie wavelength,
 \begin{equation}
     \lambda = \frac{h}{p}.
@@ -134,7 +136,7 @@ What is interesting is that transistor density is continuing Moore's Law of expo
 Using the data from Rupp \cite{rupp2020trends}, we can estimate future performance in general computation (See Fig.~\ref{fig:2}).
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{Processor Forecast.png}
+    \includegraphics[width=\textwidth]{Processor Forecast.pdf}
     \caption{Fitted model of of computations per unit energy consumed. This is based upon \cite{rupp2020trends}.} \label{fig:2}
 \end{figure}
 
@@ -151,21 +153,21 @@ Their original dataset was updated with a selection of more recent miners, Table
     \caption{Selection of more recent bitcoin miners and their efficiency.}\label{tbl:1}
     \begin{tabular}{|l|l|l|l|}
         \hline
-        Manufacturer &  Model   & Efficiency [J/TH] & Release Date   \\
+        Manufacturer & Model    & Efficiency [J/TH] & Release Date   \\
         \hline
-        AntMiner     & S15      &57                 & 11/11/2018     \\
-        AntMiner     & S17      &39.5               & 19/04/2019     \\
-        AntMiner     & S19      &34.5               & 01/05/2020     \\
-        AntMiner     & S19j     &36.11              & 01/06/2021     \\
-        AntMiner     & S19 Pro  &29.55              & 01/05/2020     \\
-        AntMiner     & S19j Pro &30.5               & 01/06/2021     \\
-        AntMiner     & S19 XP   &21.5               & 1/2/2022 (est) \\
+        AntMiner     & S15      & 57                & 11/11/2018     \\
+        AntMiner     & S17      & 39.5              & 19/04/2019     \\
+        AntMiner     & S19      & 34.5              & 01/05/2020     \\
+        AntMiner     & S19j     & 36.11             & 01/06/2021     \\
+        AntMiner     & S19 Pro  & 29.55             & 01/05/2020     \\
+        AntMiner     & S19j Pro & 30.5              & 01/06/2021     \\
+        AntMiner     & S19 XP   & 21.5              & 1/2/2022 (est) \\
         \hline
     \end{tabular}
 \end{table}
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{BTC Mining Performance.png}
+    \includegraphics[width=\textwidth]{BTC Mining Performance.pdf}
     \caption{Fitted model of of computations per unit energy consumed. This is based upon \cite{rupp2020trends}.} \label{fig:3}
 \end{figure}
 
@@ -228,8 +230,8 @@ Because of the tight dimensional tolerances needed in compact heat exchangers, b
 % Power Usage Effectiveness
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Power Usage Effectiveness}
-The current method of air cooling has a very low Power Usage Effectiveness, PUE, $\approx 1.044$.
-\footnote{This is based on private communication from Upstream Data, "2x 0.5 HP (0.745 kW) fans every 180 kW of PDU" (17 Nov 2021) and for an Antminer S19XP  which has 4 fans (assuming 2.7A @ 12V) ~ 130 W for 3.25 kW of 29.5 J/TH.}
+The current method of air cooling has a very low Power Usage Effectiveness, PUE, $\approx 1.044$.\footnote{
+    This is based on private communication from Upstream Data, "2x 0.5 HP (0.745 kW) fans every 180 kW of PDU" (17 Nov 2021) and for an Antminer S19XP  which has 4 fans (assuming 2.7A @ 12V) ~ 130 W for 3.25 kW of 29.5 J/TH.}
 PUE is the ratio of the total power of the system to the power sent to the miners.
 Keep in mind this is using outside ambient air which is blown, filtered, through the miners.
 If air cooled system is moved from cold climates, the miners have to be under clocked to keep the chip temperatures in specification.
@@ -269,14 +271,14 @@ The target is computed by:
     Target=\frac{MaxTarget}{Difficulty}=\frac{2^{224}}{Difficulty}. \label{eq:1}
 \end{equation}
 
-The max target was set in the genesis block with a byte string of ``1d00ffff'' and the initial difficulty for the first 2015 blocks was 1.
-\footnote{There is an off-by-one bug in the source code where the target is recomputed every 2015 blocks instead of 2016 blocks.}
+The max target was set in the genesis block with a byte string of ``1d00ffff'' and the initial difficulty for the first 2015 blocks was 1.\footnote{
+    There is an off-by-one bug in the source code where the target is recomputed every 2015 blocks instead of 2016 blocks.}
 
 After the first 2015 blocks were mined, the target number was adjusted in the first difficulty adjustment.
 The difficulty is adjusted every 2015 blocks so that the next 2015 blocks will take an anticipated 14-days,
 \begin{eqnarray}
     Difficulty_{new} &=& Difficulty_{prev}\frac{\Delta t_{nom}}{\Delta t_{prev}}, \label{eq:2} \\
-    \Delta t_{nom}   &=& 2016 [blocks] \cdot 600[\frac{s}{block}]. \\
+    \Delta t_{nom}   &=& 2016 [blocks] \cdot 600[\frac{s}{block}].
 \end{eqnarray}
 The new difficulty is $Difficulty_{new}$.
 The previous blocks difficulty is $Difficulty_{prev}$.
@@ -307,6 +309,7 @@ These probabilities are incredibly small and are independent from similar proces
 This very is similar to how the hash for the next block reward is found.
 We could think of a hash being generated as a wave function propagating from the CPU to the network.
 This hash has a certain potential $p$ and must tunnel past an infinitely thin barrier of a potential $c_0 \delta(x)$.
+Where $\delta(x)$ is the Dirac $\delta$ function and $c_0$ represents the finite potential of the barrier.
 We will use a wave equation of the form:
 \begin{equation}
     -\frac{1}{2}\psi''(x) + c_0 \delta(x) \psi(x) = 0 \label{eq:4}
@@ -316,7 +319,7 @@ Equation \ref{eq:4} has the following solution:
     \psi(x) =\left\{
     \begin{array}{ll}
         e^{i p x} + r e^{-i p x} & x < 0 \\
-        t e^{i p x} & x > 0 \\
+        t e^{i p x}              & x > 0 \\
     \end{array}
     \right.
 \end{equation}
@@ -325,6 +328,7 @@ The transmission probability, $T = t^*t$ is:
 \begin{equation}
     T = \frac{1}{1+\frac{c_0^2}{p^2}}. \label{eq:5}
 \end{equation}
+Where $t^*$ is the complex conjugate of $t$.
 Which if $c_0 \gg p$ equation \ref{eq:5} becomes:
 \begin{equation}
     T = \frac{p^2}{c_0^2}. \label{eq:6}
@@ -341,12 +345,13 @@ Mathematically we characterize the process of radioactive decay as a Poisson Poi
     \item Stationary increments: the number of arrivals occurring in a given time interval depends only on the length of the interval.
     \item The probability of one arrival occurring in a time interval of length $\delta t$ is $H \delta t + o(\delta t)$ for $\delta t \rightarrow 0$.
     \item The probability of two or more arrivals occurring in a time interval of length $\delta t$ is $o(\delta t)$ for $\delta t \rightarrow 0$ \cite{tijms2003first}.
+          
 \end{enumerate}
-\footnote{For processes with infinitesimally small transition rates, $1 - e^{-H} = h - \frac{h^2}{2!} + \frac{h^3}{3! + \ldots = h + o(h)}$ as $h \rightarrow 0$\cite{tijms2003first}.}
-We note that the quantum state transitions occur at infinitesimally small probabilities with each isotope being independent of all of the other isotopes.
+We note that the quantum state transitions occur at infinitesimally small probabilities with each isotope being independent of all of the other isotopes.\footnote{
+    For processes with infinitesimally small transition rates, $1 - e^{-H} = h - \frac{h^2}{2!} + \frac{h^3}{3!} + \ldots = h + o(h)$ as $h \rightarrow 0$\cite{tijms2003first}.}
 
-The for bitcoin we observe that the transmission probabilities are fixed by Definition \ref{def:1} or equivalently equation \ref{eq:3}.
-The generation of a suitable has follows the exact same statistical process as radioactive decay and it similarly satisfies the four conditions of a Poisson process.
+For bitcoin we observe that the transmission probabilities are fixed by Definition \ref{def:1} or equivalently equation \ref{eq:3}.
+We note that the discovery of a suitable block header follows the exact same statistical process as radioactive decay, because block discovery equivalently satisfies the four conditions of a Poisson process.
 
 We note that the transmission probability of a winning block is defined by equation \ref{eq:3} and is uniform for all processors generating all hashes within a given difficulty epoch $Difficulty_i$.
 Because the transmission probability is uniformly distributed expected time to discover a block for $k$ hashes is, 
@@ -362,7 +367,7 @@ We can describe the mean of this function as being,
 \begin{equation}
     \frac{1}{t_N - t_0}\int_{t_0}^{t_N} dt H(t) =  \frac{1}{N}\sum_i^N H_i = \langle H \rangle. \label{eq:7}
 \end{equation}
-Where the first blocks beginning time is $t_0$ and the $N^{\mbox{th}}$ block's discovery (end) time is $t_N$.
+Where the first block's beginning time is $t_0$ and the $N^{\mbox{th}}$ block's discovery (end) time is $t_N$.
 
 From Theorem 1.3.1 of \cite{tijms2003first}, we can describe the stepwise non stationary Poisson process for $t,\Delta t >0$ as,
 \begin{equation}
@@ -373,7 +378,7 @@ Where $N$ is the random variable of the number of hashes and $\Delta t$ is some 
 By Theorem 1.1.1 of \cite{tijms2003first}, the expected number of hashes is,
 \begin{eqnarray}
     \langle N \rangle &=& \langle H \rangle \Delta t \\
-    \langle N \rangle &=& 2^{32} \Delta t \sum_i \frac{Difficulty_i}{\Delta t_i} \\
+    \langle N \rangle &=& 2^{32} \Delta t \sum_i \frac{Difficulty_i}{\Delta t_i}
 \end{eqnarray}
 Where $\Delta t = \sum_i \Delta t_i$.
 
@@ -400,19 +405,19 @@ This is not an entirely accurate assumption but considering the inaccuracies in 
 \end{definition}
 
 We observe that by Definition \ref{def:2} it is impossible to have a negative time step because the MTP rule invalidates any blocks which would have a negative time step.
-Additionally, when we look at the data contained in the blockchain, we find that $\Delta t_i \sim \mbox{Gamma}(\alpha, \beta)$, ($\alpha = 6.09, \beta = 1.10\times 10^{-2}$ for blocks 195012-200000 See Figure \ref{fig:4}) and that the hashrate is $H_i \sim \mbox{Inv-Gamma}(\alpha_H, \beta_H)$.
+Additionally, when we look at the data contained in the blockchain, we find that $\Delta t_i \sim \mbox{Gamma}(\alpha, \beta)$, ($\alpha = 5.55, \beta = 1.01\times 10^{-2}$ for blocks 717696--719185 See Figure \ref{fig:4}) and that the hashrate is $H_i \sim \mbox{Inv-Gamma}(\alpha_H, \beta_H)$.
 \begin{figure}
-    \includegraphics[width=\textwidth]{Block MTP Empirical Distribution Fit.png}
+    \includegraphics[width=\textwidth]{BTC MTP Emperical Distribution Fit.pdf}
     \caption{
-        Estimating the empirical distribution of the MTP block time for blocks 195012-200000.
-        Fitted model is $\Gamma(\alpha,\beta)$ where $\alpha = 6.09$ and $\beta = 1.10\times 10^{-2}$.
+        Estimating the empirical distribution of the MTP block time for blocks 717696--719185.
+        Fitted model is $\Gamma(\alpha,\beta)$ where $\alpha = 5.55$ and $\beta = 1.01\times 10^{-2}$.
     }\label{fig:4}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Computing Marginal Utility
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Computing Marginal Utility}
+\subsection{Computing Marginal Utility}\label{sect:3.2}
 To establish what the marginal utility is, we need to have a solid metric for measuring utility that is absolute in its measure and is a conserved quantity.
 During our quantum mechanical discussion we showed that  hashes, through the conservation of their current, are conserved.
 This is an absolute measure and we could use it to establish utility, however, this is only valid on chain.
@@ -431,11 +436,61 @@ We now have everything that we need to define the per block marginal utility of 
     \begin{equation}
         \lambda_{\mbox{\bitcoin},i} \equiv \frac{H_i 600}{Coinbase_i \eta(t_i)}.\label{eq:9}
     \end{equation}
-    Where for the $i^{\mbox{th}}$ block, $lambda_i$ is the marginal utility [MJ/BTC], $H_i$ is the hashrate [TH/s], 600 is the number of seconds between nominal blocks, $eta(t_i)$ is the miner efficiency [MH/J], and $Coinbase$ is the sum of the {\tt utxos} [satoshi] in the block's first transaction, {\tt nTxOut}=0.
+    Where for the $i^{\mbox{th}}$ block, $\lambda_i$ is the marginal utility [MJ/BTC], $H_i$ is the hashrate [TH/s], 600 is the number of seconds between nominal blocks, $eta(t_i)$ is the miner efficiency [MH/J], and $Coinbase$ is the sum of the {\tt utxos} [satoshi] in the block's first transaction, {\tt nTxOut}=0.
     The term {\tt utxo} stands for unspent transaction output. The $Coinbase_i$ needs to be divided by $10^8$ to convert from satoshi to BTC.
 \end{definition}
 
+We can see the results of Definition \ref{def:3} in Figure \ref{fig:5}.
+The presented histogram shows the per block variation of the marginal utility around the 14-day moving average of the marginal utility.
+We can project the growth in marginal utility from January 2014, block 278000, using an exponential model,
+\begin{equation}
+    \lambda_{\mbox{\bitcoin}}(t) = e^{0.4319[\frac{1}{a}] \, t - 860.3}\label{eq:15}
+\end{equation}
 
+\begin{figure}
+    \includegraphics[width=\textwidth]{BTC Marginal Utility.pdf}
+    \caption{Histogram of the per block marginal utility plotted with the 14-day moving average. The vertical red lines represent halvenings.} \label{fig:5}
+\end{figure}
+
+The evaluation of the test data set residuals of the marginal utility projection, equation \ref{eq:15} can be seen in Figure \ref{fig:6}.
+The model clearly represents a 8-year trend in the exponential growth of bitcoin's value.
+80\% of the time series data was used for developing the model.
+The remaining 20\% was used to evaluate the model which had an $R^2=0.780$, $p<2.2\cdot10^{-6}$, and normal residuals.
+This model predicts bitcoin's marginal utility will double every 1.44 years and has been doubling at such a rate for the past 8-years.
+This trend will likely give way to the latter part of the sigmoid curve as this level of growth is fundamentally constrained by humanity's access to energy.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{BTC Marginal Utility Projection Test Fit Evaluation.pdf}
+    \caption{Evaluation of the test dataset for the model predicting current growth in bitcoin's value.
+        The model is given in equation \ref{eq:15}.} \label{fig:6}
+\end{figure}
+
+We can explore the relationship of bitcoin's marginal utility to price as well.
+For this we take the data from \cite{fred2022btcusd} and evaluate it against the marginal utility daily average for each day.\footnote{
+    The FRED data series times needed to be shifted by 20-hours.
+    The data series time zone is PST (UTC -8) whereas bitcoin's network time is UTC.
+    The additional 12-hours is so that the daily moving average represents the daily average.
+}
+Following the same convention as before, we use 80\% of the data for the training dataset and reserve 20\% for testing.
+Figure \ref{fig:7} shows the bitcoin price as a function of its marginal utility.
+The graph is $\log - \log$ and the fitted model is to a power law relationship,
+\begin{equation}
+    price = 1.564 \cdot 10^{-5} \lambda_{\mbox{\bitcoin}}^{1.667}.\label{eq:16}
+\end{equation}
+This left 514-days for evaluation.
+The resulting dataset had an $R^2=0.880$, $p<2.2\cdot10^{-6}$, and normal residuals.
+The graphical evaluation of the residuals is presented in Figure \ref{fig:8}.
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{BTC Price and Marginal Utility.pdf}
+    \caption{Comparison of Bitcoin's price and marginal utility from December 2014--Present.
+        The model is given in equation \ref{eq:16}.} \label{fig:7}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=\textwidth]{BTC Price and Marginal Utility Fit Test.pdf}
+    \caption{Evaluation of the test dataset for the model predicting the present trend in the relationship between bitcoin's price and marginal utility.
+        The model is given in equation \ref{eq:16}.} \label{fig:8}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mining Economics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -444,6 +499,9 @@ To begin an economic analysis we need to first define what it is that we are mod
 A bitcoin mining operation will have to convert bitcoin into fiat currency in order to be able to repay loans, pay for electricity, and pay employees.
 An alternative to converting accumulated bitcoin to fiat is to use the mined bitcoin as collateral for a loan to pay for operations.
 For the sake of simplicity we will look at a conventional mining operation that is funded through debt and equity with the fraction of equity being $\alpha$ and the fraction of debt being $1 - \alpha$.
+
+With the development in Section \ref{sect:3.2} of a relationship between bitcoin's marginal utility and price, one could use those relationships to do conventional economic forecasting for project evaluation.
+While this presents a known path for comparison moving forward it will miss out on the benefits of the methods developed in this section. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Cost of Energy
@@ -491,7 +549,7 @@ This translates to an onsite cost of power of $\$50/MW-hr$.
 
 In this situation the power plant is the primary source of power and the grid is the backup.
 The mining operation would also benefit from directly accessing the power plant's water cooling system.
-This would result in significantly less capital expenditure for the mining operations heat rejection system.
+This would result in significantly less capital expenditure for the mining operation's heat rejection system.
 Depending on the ultimate heat sink and using liquid cooling, this could provide an additional 2.4--4\% savings in electricity use.
 
 There is another synergy with collocating mining with a power plant.
@@ -499,10 +557,10 @@ If the mining operation is large enough compared to the power plant, it could pr
 This would simplify grid restoration in large scale blackouts because the power plant would not have to be black started, it would already be running.
 
 In areas where grid capacity is limited, such as the developing world, integrating mining with the power plant would enable the power plant to be sized larger (lower capital cost [$\$/kW$]).
-In some cases having a minimum guaranteed power off take improves the ability to finance the project if there is not a sovereign PPA.
+In some cases having a minimum guaranteed power offtake improves the ability to finance the project if there is not a sovereign PPA.
 This minimizes the possibility of transmission interruption.
 
-The author was present at a power plant in Central America where the main output breaker opened due to under voltage protection causing a plant trip.
+The author was present at a power plant in Central America where the main output breaker opened due to an under voltage protection causing a plant trip.
 The power plant (coal) had very specific actions that had to be executed rapidly to prevent steam pressure and tube wall temperature excursions.
 The impact of these actions, only mitigate the damage to the boiler.
 They do not prevent it.
@@ -561,7 +619,7 @@ The average miner reward can be expressed as,
 If we combine this with Definition \ref{def:3}, we can express the utility $\langle U_i \rangle$ generated in the $i^{\mbox{th}}$ period as being,
 \begin{eqnarray}
     \langle U_i \rangle &\equiv& \lambda_{\bitcoin, i} \langle Reward_i \rangle \\
-    \langle U_i \rangle &=& \frac{\eta(t_0) Coinbase_0}{\eta(t_i)Coinbase_i} \langle U_0 \rangle \\ \label{eq:11}
+    \langle U_i \rangle &=& \frac{\eta(t_0) Coinbase_0}{\eta(t_i)Coinbase_i} \langle U_0 \rangle \label{eq:11}
 \end{eqnarray}
 Where $\eta(t_i)$ is the miner efficiency and $Coinbase_i$ is the blocks coinbase defined in equation \ref{eq:9}.
 It is interesting to note that the average utility produced by each block is only a function of the coinbase and the efficiency of the miner, relative to the current state of the art.
@@ -628,7 +686,7 @@ The economic temperature, marginal utility of uncertainty can be taken directly 
 This allows us to rewrite equation \ref{eq:13},
 \begin{eqnarray}
     F &=& U_{total} - U_{expended} S, \\
-    \frac{F}{U_{expended}} &=& \frac{\langle U_{total}\rangle}{U_{expended}} - S. \label{eq:14}\\
+    \frac{F}{U_{expended}} &=& \frac{\langle U_{total}\rangle}{U_{expended}} - S. \label{eq:14}
 \end{eqnarray}
 The selection criteria is to choose the option with the greatest Helmholtz potential per unit of utility expended.
 It is important to note that the Utility Return on Investment, UROI, is $\frac{\langle U_{total}\rangle}{U_{expended}}$, and that it is modified to take into account uncertainty.
@@ -649,16 +707,26 @@ Reliability has a definite economic value.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 
-This paper has covered a significant breadth of topics ranging from quantum and statistical physics to Game Theory and statistical economics.
-It is an effort to from first principles to derive the methodology of how to properly account for the economics of bitcoin mining.
+It is clear that increasing processor chip density has plateaued due to reaching the physical limits of transistor construction.
+While there are other ways of constructing transistors at the atomic scale, it is unclear if these will result in increased processor efficiency.
+We can say that for now bitcoin miner efficiency has clearly plateaued due to reaching the atomic limits of the silicone transistor.
 
-There have been four major findings of this paper.
-First, is the trends in processor performance and mining energy efficiency has plateaued due to reaching the physical limits of classical computing.
-Second, is that the mining process of finding a hash with an integer value less than the target is fundamentally and mathematically equivalent to quantum tunneling as seen in radioactive decay.
-Third, we found that this quantum state transition is governed as a Poisson Process and from this derived the marginal utility of bitcoin.
-Finally, we created a method for how to formally and fully analyze the economic potentials of the different projects.
+If we are going to predict future gains in bitcoin mining performance we need to approach chip cooling from a more rigorous thermohydraulic perspective.
+Air cooling, while effective for when chip designs were rapidly changing, is not adequate moving forward.
+We showed at a high level the need to shift to liquid cooling and suggest that miner construction be similar to that of a plate-frame heat exchanger to reduce material costs and improve the system's overall thermodynamic efficiency.
 
-While the exposition of the different ideas was not necessarily easy, the conclusions proved to have simple and intuitive results.
+We developed an analogy of bitcoin mining to that of radioactive decay including the use of the wave equation to describe the transmission probabilities of a hashed value less than the target value.
+This analogy allowed us to use the Poisson Point Process to derive an expression for the marginal utility of bitcoin.
+
+While the expression of marginal utility is ultimately quite profound, it allows us to express the economic considerations of miners across time very simply.
+It removes the complexity of the difficulty adjustments, miner subsidy, and currency exchange rates into a simple and powerful tool.
+We showed how to leverage this new tool in a novel model that accounts for the uncertainty of the associated generating asset used to power the miners.
+
+It was always clear from the early days of bitcoin mining, how important the price of power is in mining.
+This paper hopefully shows how to approach bitcoin mining and its relationship to the electric grid as being symbiotic rather than parasitic.
+Grid integration is an incredibly complex subject as the markets can be complex, but we can select the guiding principle of being a good neighbor to provide a constructive approach to resolving the complexity.
+If we seek to understand the needs of electricity consumers, producers, and distributors, there are opportunities that allow bitcoin mining to limit power price fluctuations, while providing additional sources of revenue for the mine operator.
+The relationship of the parties on the grid is not zero-sum especially when we consider contracts that include demand response provisions. 
 
 
 %
