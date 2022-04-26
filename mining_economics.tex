@@ -105,7 +105,7 @@ This results in an ionized electron wave length of $0.44$ nm.
 Keep in mind this is for the free electron.
 If the electron remains in the shell, the actual Van der Waals radius of silicon is smaller and is on the order of $0.21$ nm \cite{VdW-Si}.
 The Van der Waals radius is also a function of the thermal energy of the atom.
-As the temperature increases, so to does the internal energy of the atom.
+As the temperature increases, so too does the internal energy of the atom.
 As a result the electron energy increases as the electrons occupy higher quantum states.
 This forms a complex relationship with the temperature of the silicon and the electric field applied with relation to transistor cascade (electron ionization) \cite{maes1990impact}.
 
@@ -153,7 +153,7 @@ Their original dataset was updated with a selection of more recent miners, Table
     \caption{Selection of more recent bitcoin miners and their efficiency.}\label{tbl:1}
     \begin{tabular}{|l|l|l|l|}
         \hline
-        Manufacturer & Model    & Efficiency [J/TH] & Release Date   \\
+        Manufacturer & Model    & Efficiency [J/Th] & Release Date   \\
         \hline
         AntMiner     & S15      & 57                & 11/11/2018     \\
         AntMiner     & S17      & 39.5              & 19/04/2019     \\
@@ -168,14 +168,14 @@ Their original dataset was updated with a selection of more recent miners, Table
 
 \begin{figure}
     \includegraphics[width=\textwidth]{BTC Mining Performance.pdf}
-    \caption{Fitted model of of computations per unit energy consumed. This is based upon \cite{rupp2020trends}.} \label{fig:3}
+    \caption{Fitted model of of computations per unit energy consumed. This is based upon \cite{kuf2019mining}.} \label{fig:3}
 \end{figure}
 
 The fitted curve in Figure \ref{fig:3} is given by,
 \begin{equation}
     \eta(t) = A + \frac{K - A}{1 + e^{-B(t - M)}}
 \end{equation}
-Where the parameters are $A = 0.01 [MH/J]$, $K = 4.27\times 10^4 [MH/J]$,  $B = 1.26 [\frac{1}{a}]$, and $ M = 2019.2 [a]$.
+Where the parameters are $A = 0.01 \,\textrm{Mh/J}$, $K = 4.27\times 10^4 \,\textrm{Mh/J}$,  $B = 1.26 \,\textrm{a}^{-1}$, and $ M = 2019.2 \,\textrm{a}$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -219,11 +219,11 @@ For this next step, hash board standardization is absolutely critical.
 What we will need is to separate the cooling liquid from the board circuitry.
 This can readily be achieved using aluminum brazed plates sandwiched between the circuit board layers and using a coolant like either pure water or an ethylene glycol water mixture.
 These are inexpensive and common coolants that are non combustible.
-These coolants support a wide temperature operating range from $-45^{\circ}C$ -- $100^{\circ}C$.
-If the objective is to limit chip temperature to $<90^{\circ}C$, then the coolant needs to be at most $<35-40^{\circ}C$ to support effective heat transfer at low enough temperatures to support safely overclocking the chips.
+These coolants support a wide temperature operating range from $-45^{\circ}\textrm{C}$ -- $100^{\circ}\textrm{C}$.
+If the objective is to limit chip temperature to $<90^{\circ}\textrm{C}$, then the coolant needs to be at most $<35-40^{\circ}\textrm{C}$ to support effective heat transfer at low enough temperatures to support safely overclocking the chips.
 
 As chip transistor density continues to increase, air cooling will no longer be adequate to remove the heat generated during operation.
-This will only exacerbate the drive toward more compact heat exchange surfaces with densities of plate side $>200\frac{m^2}{m^3}$.
+This will only exacerbate the drive toward more compact heat exchange surfaces with densities of plate side $>200\,\textrm{m}^2\cdot\textrm{m}^{-3}$.
 Because of the tight dimensional tolerances needed in compact heat exchangers, boards will have to have consistent dimensions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -231,7 +231,7 @@ Because of the tight dimensional tolerances needed in compact heat exchangers, b
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Power Usage Effectiveness}
 The current method of air cooling has a very low Power Usage Effectiveness, PUE, $\approx 1.044$.\footnote{
-    This is based on private communication from Upstream Data, "2x 0.5 HP (0.745 kW) fans every 180 kW of PDU" (17 Nov 2021) and for an Antminer S19XP  which has 4 fans (assuming 2.7A @ 12V) ~ 130 W for 3.25 kW of 29.5 J/TH.}
+    This is based on private communication from Upstream Data, "2x 0.5 HP (0.745 kW) fans every 180 kW of PDU" (17 Nov 2021) and for an Antminer S19XP  which has 4 fans (assuming 2.7A @ 12V) ~ 130 W for 3.25 kW of 29.5 J/Th.}
 PUE is the ratio of the total power of the system to the power sent to the miners.
 Keep in mind this is using outside ambient air which is blown, filtered, through the miners.
 If air cooled system is moved from cold climates, the miners have to be under clocked to keep the chip temperatures in specification.
@@ -244,7 +244,7 @@ If the miner coolant can be cooled directly with water, e.g. the ocean, the PUE 
 This is the limit of how efficient a mining system can be.
 
 The PUE is important in the economic analysis because it is the energy overhead on top of the energy used for mining.
-While it is a small quantity in bitcoin mining applications, a 2.5--4\% improvement in a process's energy efficiency is non trivial.
+While it is a small quantity in bitcoin mining applications, a 2.5--4 \% improvement in a process's energy efficiency is non trivial.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bitcoin's Marginal Utility
@@ -259,37 +259,35 @@ Then we will look at establishing a more absolute measure.
 % On Chain Metrics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{On Chain Metrics}
-Before we delve too far into developing the on chain metrics for marginal utility, we need to look at the process of how a block is discovered.
-I do not use the word mined, because it is not mined, and even in traditional mining accessing the mineral/ore underground is a process of discovery.
-To be awarded a block a miner has to generate a random number called a nonce, number used once. and combine that into a specific structured 80 byte packet of data, the block header.
+Before we delve too far into developing the on chain metrics for marginal utility, we need to look at the process of how a block is discovered/mined.
+To be awarded a block a miner has to generate a random number called a nonce, number used once, and combine that into a specific structured 80 byte packet of data, the block header.
 The header is then hashed generating a unique 32 byte (256 bit) number for that data.
-The hashed number has to have a value less than target number, $target$.
+The hashed number has to have a value less than target number, $Target$.
 If the hashed value is less than the target that miner is awarded the block reward, called the coinbase.
 
 The target is computed by:
 \begin{equation}
-    Target=\frac{MaxTarget}{Difficulty}=\frac{2^{224}}{Difficulty}. \label{eq:1}
+    Target=\frac{MaxTarget}{Difficulty}=\frac{2^{224}\,\textrm{bits}}{Difficulty}. \label{eq:1}
 \end{equation}
 
-The max target was set in the genesis block with a byte string of ``1d00ffff'' and the initial difficulty for the first 2015 blocks was 1.\footnote{
-    There is an off-by-one bug in the source code where the target is recomputed every 2015 blocks instead of 2016 blocks.}
+The max target was set in the genesis block with a byte string of ``1d00ffff'' and the initial difficulty for the first 2016 blocks was 1.\footnote{
+    There is an off-by-one bug in the source code where the target computation uses 2015 blocks instead of the 2016 blocks of a difficulty epoch.}
 
-After the first 2015 blocks were mined, the target number was adjusted in the first difficulty adjustment.
-The difficulty is adjusted every 2015 blocks so that the next 2015 blocks will take an anticipated 14-days,
+After the first 2016 blocks were mined, the target number was adjusted in the first difficulty adjustment.
+The difficulty is adjusted every 2016 blocks so that the next 2016 blocks will take an anticipated 14-days,
 \begin{eqnarray}
-    Difficulty_{new} &=& Difficulty_{prev}\frac{\Delta t_{nom}}{\Delta t_{prev}}, \label{eq:2} \\
-    \Delta t_{nom}   &=& 2016 [blocks] \cdot 600[\frac{s}{block}].
+    Difficulty_{new} & = & Difficulty_{prev}\frac{\Delta t_{nom}}{\Delta t_{prev}}, \label{eq:2} \\
+    \Delta t_{nom}   & = & 2016 \,\textrm{blocks} \cdot 600\,\textrm{s} \cdot \textrm{block}^{-1}.
 \end{eqnarray}
 The new difficulty is $Difficulty_{new}$.
 The previous blocks difficulty is $Difficulty_{prev}$.
 The nominal times between blocks is $\Delta t_{nom}$.
 And $\Delta t_{prev}$ is the difference in time between the first block and the last block of that difficulty period.
 
-We can now define the probability of finding the next block $p_i$ as being,
+We can now define the probability, $p_i$, of finding the next block with a hash less than $Target$ as being,
 \begin{definition} \label{def:1}
-    The probability of finding a hash with a value less than the $Target$ is:
     \begin{equation}
-        p_i = \frac{Target}{2_{256}}.
+        p_i = \frac{Target}{2^{256}\,\mathrm{bits}}.
     \end{equation}
 \end{definition}
 
@@ -302,7 +300,7 @@ We can express Definition \ref{def:1} in terms of $Difficulty$ through Equation 
 % Transmission Probability
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Transmission Probability}
-There are a number of similarities between radioactive $\beta^-$ and $\alpha$ decay and bitcoin mining.
+There are a number of similarities between radioactive decay and bitcoin mining.
 From a quantum prospective the occurrence of decay occurs when the wave function has a small portion that exists outside of energy well of the nucleus.
 These probabilities are incredibly small and are independent from similar processes in other nuclei.
 
@@ -333,7 +331,8 @@ Which if $c_0 \gg p$ equation \ref{eq:5} becomes:
 \begin{equation}
     T = \frac{p^2}{c_0^2}. \label{eq:6}
 \end{equation}
-With equation \ref{eq:6}, we have recovered Definition \ref{def:1}, with the quantum potentials being, $p = \sqrt{Target}$ and $c_0 = 2^{128}$.
+With equation \ref{eq:6}, we have recovered Definition \ref{def:1}, with the real quantum potentials being, $p = 2^{-16}$ and $c_0 = \sqrt{Difficulty}$.
+We will revisit the quantum formulation once we have laid out the foundations for the statistics of how bitcoin measures utility and time in the next section.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Block Discovery as a Poisson Process
@@ -343,44 +342,43 @@ Mathematically we characterize the process of radioactive decay as a Poisson Poi
 \begin{enumerate}
     \item Independent increments: the numbers of arrivals occurring in the disjoint intervals of time are independent.
     \item Stationary increments: the number of arrivals occurring in a given time interval depends only on the length of the interval.
-    \item The probability of one arrival occurring in a time interval of length $\delta t$ is $H \delta t + o(\delta t)$ for $\delta t \rightarrow 0$.
-    \item The probability of two or more arrivals occurring in a time interval of length $\delta t$ is $o(\delta t)$ for $\delta t \rightarrow 0$ \cite{tijms2003first}.
-          
+    \item The probability of one arrival occurring in a time interval of length $\delta t$ is $H \delta t + O(\delta t^2)$ for $\delta t \rightarrow 0$.
+    \item The probability of two or more arrivals occurring in a time interval of length $\delta t$ is $O(\delta t)$ for $\delta t \rightarrow 0$ \cite{tijms2003first}.
 \end{enumerate}
 We note that the quantum state transitions occur at infinitesimally small probabilities with each isotope being independent of all of the other isotopes.\footnote{
-    For processes with infinitesimally small transition rates, $1 - e^{-H} = h - \frac{h^2}{2!} + \frac{h^3}{3!} + \ldots = h + o(h)$ as $h \rightarrow 0$\cite{tijms2003first}.}
+    For processes with infinitesimally small transition rates, $1 - e^{-h} = h - \frac{h^2}{2!} + \frac{h^3}{3!} + \ldots = h + O(h^2)$ as $h \rightarrow 0$\cite{tijms2003first}.}
 
 For bitcoin we observe that the transmission probabilities are fixed by Definition \ref{def:1} or equivalently equation \ref{eq:3}.
 We note that the discovery of a suitable block header follows the exact same statistical process as radioactive decay, because block discovery equivalently satisfies the four conditions of a Poisson process.
 
-We note that the transmission probability of a winning block is defined by equation \ref{eq:3} and is uniform for all processors generating all hashes within a given difficulty epoch $Difficulty_i$.
+We note that the transmission probability of a winning block is defined by equation \ref{eq:3} and is uniform for all processors generating all hashes within a given difficulty epoch with a difficulty of $Difficulty$.
 Because the transmission probability is uniformly distributed expected time to discover a block for $k$ hashes is, 
 \begin{equation}
-    E(S_k - S_{k - 1}| N(t) = n) = \frac{t}{n + 1}.\mbox{\cite{tijms2003first}}
+    E(S_k - S_{k - 1}| \mathcal{H}(t) = H) = \frac{t}{H + 1}.\mbox{\cite{tijms2003first}}
 \end{equation}
-Where $S_k$ is the random variable of the inverse hash rate for $1 < k < n$ attempts.
+Where $S_k$ is the random variable of the inverse hash rate for $1 < k < H$ attempts.
 
-Given that the number of hashes to discover a bock, $n$, is defined as $n \equiv \frac{1}{p_i}$ and $t$ is the observed time between blocks.
-Because the hash rate, $H$, is defined based upon the arrival of new blocks, we will assume that it is constant for a given block.
-Thus it will be a piecewise continuous step function for each block in the blockchain.
+Given that the number of hashes to discover a bock, $H$, is defined as $H \equiv 1/p_i$ and $t$ is the observed time between blocks.
+Because the hash rate, $\dot{H}$, is defined based upon the arrival of new blocks, we will assume that it is constant for a given block.
+Thus it will be a piecewise step function for each block in the blockchain.
 We can describe the mean of this function as being,
 \begin{equation}
-    \frac{1}{t_N - t_0}\int_{t_0}^{t_N} dt H(t) =  \frac{1}{N}\sum_i^N H_i = \langle H \rangle. \label{eq:7}
+    \frac{1}{t_N - t_0}\int_{t_0}^{t_N} dt \dot{H}(t) =  \frac{1}{N}\sum_i^N \dot{H}_i = \langle \dot{H} \rangle. \label{eq:7}
 \end{equation}
 Where the first block's beginning time is $t_0$ and the $N^{\mbox{th}}$ block's discovery (end) time is $t_N$.
 
 From Theorem 1.3.1 of \cite{tijms2003first}, we can describe the stepwise non stationary Poisson process for $t,\Delta t >0$ as,
 \begin{equation}
-    P\lbrace N(t + \Delta t) - N(t)= n\rbrace = \frac{(\langle H \rangle \Delta t)^n}{n!}e^{-\langle H \rangle \Delta t}\label{eq:8}
+    P\lbrace \mathcal{H}(t + \Delta t) - \mathcal{H}(t)= H\rbrace = \frac{(\langle \dot{H} \rangle \Delta t)^H}{H!}e^{-\langle \dot{H} \rangle \Delta t}\label{eq:8}
 \end{equation}
-Where $N$ is the random variable of the number of hashes and $\Delta t$ is some positive time step.
+Where $\mathcal{H}$ is the random variable of the number of hashes and $\Delta t$ is some positive time step.
 
-By Theorem 1.1.1 of \cite{tijms2003first}, the expected number of hashes is,
+By Theorem 1.1.1 of \cite{tijms2003first}, the expected number of block hashes for defined time period is,
 \begin{eqnarray}
-    \langle N \rangle &=& \langle H \rangle \Delta t \\
-    \langle N \rangle &=& 2^{32} \Delta t \sum_i \frac{Difficulty_i}{\Delta t_i}
+    \langle H \rangle &=& \frac{1}{N}\Delta t \langle \dot{H} \rangle  \nonumber\\
+    \langle H \rangle &=& \frac{1}{N}\Delta t \frac{2^{32}Difficulty}{N} \sum_i \Delta t_i^{-1} \nonumber\\
+    \langle H \rangle &=& \frac{1}{N}\sum_j \Delta t_j \frac{2^{32}Difficulty}{N} \sum_i \Delta t_i^{-1} \label{eq:18}
 \end{eqnarray}
-Where $\Delta t = \sum_i \Delta t_i$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Measuring Time
@@ -394,23 +392,22 @@ This does not work with the derivation of the Poisson process for block discover
 Fortunately, Bitcoin has a hard stop defining the allowed zero time for each block, the Median Time Past, MTP, rule \cite{bitcoin2021core}.
 This rule requires that the timestamp of a new block be greater than the median timestamp of the previous 11 blocks.
 When we measure the time step for a block it is always with reference to this number.
-We will assume that the median block height has the median timestamp.
-This is not an entirely accurate assumption but considering the inaccuracies in measuring time it is acceptable.
+
+We express the time step for a particular block as,
 \begin{definition} \label{def:2}
-    We express the time step for a particular block as,
     \begin{equation}
-        \Delta t_i = \frac{nTime_i - Mdn_{i,11}}{6}
+        \Delta t_i = \frac{nTime_i - Mdn_{i,11}}{6}.
     \end{equation}
-    Where $\Delta t_i$ is the $i^{\mbox{th}}$ time step, $nTime_i$ is the $i^{\mbox{th}}$ block's timestamp, and $Mdn_{i,11}$ is the median of the previous 11 blocks to the $i^{\mbox{th}}$ block.
 \end{definition}
+Where $\Delta t_i$ is the $i^{\mbox{th}}$ time step, $nTime_i$ is the $i^{\mbox{th}}$ block's timestamp, and $Mdn_{i,11}$ is the median of the previous 11 blocks to the $i^{\mbox{th}}$ block.
 
 We observe that by Definition \ref{def:2} it is impossible to have a negative time step because the MTP rule invalidates any blocks which would have a negative time step.
-Additionally, when we look at the data contained in the blockchain, we find that $\Delta t_i \sim \mbox{Gamma}(\alpha, \beta)$, ($\alpha = 5.55, \beta = 1.01\times 10^{-2}$ for blocks 717696--719185 See Figure \ref{fig:4}) and that the hashrate is $H_i \sim \mbox{Inv-Gamma}(\alpha_H, \beta_H)$.
+Additionally, when we look at the data contained in the blockchain, we find that $\Delta t_i \sim \Gamma(\alpha, \beta)$, ($\alpha = 5.55, \beta = 1.01\times 10^{-2}\,\textrm{s}^{-1}$ for blocks 717696--719185 See Figure \ref{fig:4}) and that the hashrate is $H_i \sim \mbox{Inv-Gamma}(\alpha_H, \beta_H)$.
 \begin{figure}
     \includegraphics[width=\textwidth]{BTC MTP Emperical Distribution Fit.pdf}
     \caption{
         Estimating the empirical distribution of the MTP block time for blocks 717696--719185.
-        Fitted model is $\Gamma(\alpha,\beta)$ where $\alpha = 5.55$ and $\beta = 1.01\times 10^{-2}$.
+        Fitted model is $\Gamma(\alpha,\beta)$ where $\alpha = 5.55$ and $\beta = 1.01\times 10^{-2}\,\textrm{s}^{-1}$.
     }\label{fig:4}
 \end{figure}
 
@@ -419,7 +416,7 @@ Additionally, when we look at the data contained in the blockchain, we find that
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Computing Marginal Utility}\label{sect:3.2}
 To establish what the marginal utility is, we need to have a solid metric for measuring utility that is absolute in its measure and is a conserved quantity.
-During our quantum mechanical discussion we showed that  hashes, through the conservation of their current, are conserved.
+During our quantum mechanical discussion we showed that hashes, through the conservation of their current, are conserved.
 This is an absolute measure and we could use it to establish utility, however, this is only valid on chain.
 We need a metric that is referenced to an absolute off chain.
 
@@ -432,19 +429,18 @@ So, we will adopt that function to estimate the utility of bitcoin in the real w
 
 We now have everything that we need to define the per block marginal utility of bitcoin,
 \begin{definition}\label{def:3}
-    We define the marginal utility of bitcoin referenced to the nominal block as,
     \begin{equation}
-        \lambda_{\mbox{\bitcoin},i} \equiv \frac{H_i 600}{Coinbase_i \eta(t_i)}.\label{eq:9}
+        \lambda_{\mbox{\bitcoin},i} \equiv \frac{\langle \dot{H}_i \rangle  600\,[\mathrm{s}]}{Coinbase_i \eta(t_i)}.\label{eq:9}
     \end{equation}
-    Where for the $i^{\mbox{th}}$ block, $\lambda_i$ is the marginal utility [MJ/BTC], $H_i$ is the hashrate [TH/s], 600 is the number of seconds between nominal blocks, $eta(t_i)$ is the miner efficiency [MH/J], and $Coinbase$ is the sum of the {\tt utxos} [satoshi] in the block's first transaction, {\tt nTxOut}=0.
-    The term {\tt utxo} stands for unspent transaction output. The $Coinbase_i$ needs to be divided by $10^8$ to convert from satoshi to BTC.
 \end{definition}
+Where for the $i^{\mbox{th}}$ block, $\lambda_i$ is the marginal utility [MJ/BTC], $\langle \dot{H}_i \rangle$ is the block's average hashrate [Th/s], 600 is the number of seconds between nominal blocks, $\eta(t_i)$ is the miner efficiency [Mh/J], and $Coinbase$ is the sum of the {\tt utxos} [satoshi] in the block's first transaction, {\tt nTxOut}=0.
+The term {\tt utxo} stands for unspent transaction output. The $Coinbase_i$ needs to be divided by $10^8$ to convert from satoshi to BTC.
 
 We can see the results of Definition \ref{def:3} in Figure \ref{fig:5}.
 The presented histogram shows the per block variation of the marginal utility around the 14-day moving average of the marginal utility.
 We can project the growth in marginal utility from January 2014, block 278000, using an exponential model,
 \begin{equation}
-    \lambda_{\mbox{\bitcoin}}(t) = e^{0.4319[\frac{1}{a}] \, t - 860.3}\label{eq:15}
+    \lambda_{\mbox{\bitcoin}}(t) = 1.400\cdot 10^4 \, \textrm{MJ/BTC} \cdot e^{0.4319 \,[\textrm{a}^{-1}] (t - 2014\,[\textrm{a}])}\label{eq:15}
 \end{equation}
 
 \begin{figure}
@@ -466,24 +462,22 @@ This trend will likely give way to the latter part of the sigmoid curve as this 
 \end{figure}
 
 We can explore the relationship of bitcoin's marginal utility to price as well.
-For this we take the data from \cite{fred2022btcusd} and evaluate it against the marginal utility daily average for each day.\footnote{
-    The FRED data series times needed to be shifted by 20-hours.
-    The data series time zone is PST (UTC -8) whereas bitcoin's network time is UTC.
+For this we take the data from \cite{coin2022btcusd} and evaluate it against the marginal utility daily average for each day.\footnote{
     The additional 12-hours is so that the daily moving average represents the daily average.
 }
 Following the same convention as before, we use 80\% of the data for the training dataset and reserve 20\% for testing.
 Figure \ref{fig:7} shows the bitcoin price as a function of its marginal utility.
 The graph is $\log - \log$ and the fitted model is to a power law relationship,
 \begin{equation}
-    price = 1.564 \cdot 10^{-5} \lambda_{\mbox{\bitcoin}}^{1.667}.\label{eq:16}
+    price = 0.4965 \, \mathrm{USD/BTC} \cdot \lambda_{\mbox{\bitcoin}}^{0.7779}.\label{eq:16}
 \end{equation}
-This left 514-days for evaluation.
-The resulting dataset had an $R^2=0.880$, $p<2.2\cdot10^{-6}$, and normal residuals.
+This left 855--days for evaluation.
+The resulting dataset had an $R^2=0.909$, $p<2.2 \cdot 10^{-6}$, and normal residuals.
 The graphical evaluation of the residuals is presented in Figure \ref{fig:8}.
 
 \begin{figure}
     \includegraphics[width=\textwidth]{BTC Price and Marginal Utility.pdf}
-    \caption{Comparison of Bitcoin's price and marginal utility from December 2014--Present.
+    \caption{Comparison of Bitcoin's price and marginal utility from 18 July 2010 -- 28 March 2022.
         The model is given in equation \ref{eq:16}.} \label{fig:7}
 \end{figure}
 \begin{figure}
@@ -491,6 +485,27 @@ The graphical evaluation of the residuals is presented in Figure \ref{fig:8}.
     \caption{Evaluation of the test dataset for the model predicting the present trend in the relationship between bitcoin's price and marginal utility.
         The model is given in equation \ref{eq:16}.} \label{fig:8}
 \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Measurement of Utility and Time
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Measurement of Utility and Time}\label{sect:3.3}
+Because the measurement of utility depends upon the measurement of time and time depends on the measurement fo utility, we need to consider the consequences of their simultaneous measurement.
+From quantum game theory, we can show that utility's observable is the Hamiltonian operator \cite{abel2021entropy}.
+Because of this definition, utility and time are complementary measurements and are governed by the uncertainty principle,
+\begin{equation}
+    \sigma_t \sigma_U \ge \frac{c}{2}.\label{eq:17}
+\end{equation}
+
+We need to consider the unadjusted hash rate to provide a common basis of comparison, because the network adjusts difficulty every epoch.
+If we did not do this, we would loose any meaningful comparison between epochs because each mining epoch is effectively measuring a different system due to the different potential, $c_0$, of the quantum barrier.
+We adjust equation \ref{eq:18} to represent this comparable hash rate as,
+\begin{equation}
+    \langle H_{\textrm{comp}} \rangle = \frac{1}{N}\sum_j \Delta t_j \frac{1}{N} \sum_i \Delta t_i^{-1}
+\end{equation}
+
+Examining the variance of comparable hashes and block time for each of difficulty epochs shows the network stabilizing after the first 40 difficulty adjustments with $\sigma_t \approx 240 \, \textrm{s}$, $\sigma_U \approx 0.61$, and $c \approx 290\,\textrm{s}$.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mining Economics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -600,7 +615,7 @@ Instead, we will use as a proxy the average price of electricity, as electricity
 For the purposes of this paper we will use the average price of electricity for all sectors as the value of the dollar \cite{eia2021browser}.
 To convert this into units of utility we will apply the following formula,
 \begin{equation}
-    \lambda_{\$}(t) = \frac{3.6[\frac{MJ_U}{kW-hr}]}{Price(t)[\$/kW-hr]}.\label{eq:10}
+    \lambda_{\$}(t) = \frac{3.6[\frac{\mathrm{MJ_U}}{\mathrm{kW-hr}}]}{Price(t)[\$/\mathrm{kW-hr}]}.\label{eq:10}
 \end{equation}
 
 In all analysis multiply any dollar priced item (including debt) by $\lambda_{\$}(t)$.
@@ -611,25 +626,26 @@ One will have to make a projection of $\lambda_{\$}(t)$, using a seasonally adju
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Mining Revenue}
 The projection of mining revenue especially when considering it in terms of fiat currency is a very difficult thing to model.
-The average miner reward can be expressed as,
-\begin{equation}
-    \langle Reward_i \rangle = \frac{Difficulty_0}{Difficulty_i}\langle Reward_0 \rangle
-\end{equation}
+For a given miner hash rate, $\dot{h}_i$, the average miner reward can be expressed as,
+\begin{eqnarray}
+    \langle Reward_i \rangle & = & \frac{\dot{h}_i}{\langle \dot{H}_i \rangle} Coinbase_i \\
+    \langle Reward_i \rangle & = & \frac{Difficulty_0}{Difficulty_i}\langle Reward_0 \rangle
+\end{eqnarray}
 
 If we combine this with Definition \ref{def:3}, we can express the utility $\langle U_i \rangle$ generated in the $i^{\mbox{th}}$ period as being,
 \begin{eqnarray}
     \langle U_i \rangle &\equiv& \lambda_{\bitcoin, i} \langle Reward_i \rangle \\
-    \langle U_i \rangle &=& \frac{\eta(t_0) Coinbase_0}{\eta(t_i)Coinbase_i} \langle U_0 \rangle \label{eq:11}
+    \langle U_i \rangle &=& \frac{\eta_{\mathrm{miner}}}{\eta(t_i)} \frac{\dot{h}_i}{\dot{h}_0} \langle U_0 \rangle \label{eq:11}
 \end{eqnarray}
-Where $\eta(t_i)$ is the miner efficiency and $Coinbase_i$ is the blocks coinbase defined in equation \ref{eq:9}.
-It is interesting to note that the average utility produced by each block is only a function of the coinbase and the efficiency of the miner, relative to the current state of the art.
-The coinbase is fairly predictable, although the miner fees are going to play an ever increasing fraction of the coinbase.
-And, barring any drastic technological changes, miner performance has plateaued.
+Where $\eta_{\mathrm{miner}}$ is the miner efficiency.
+It is interesting to note that the average utility produced by each block is only a function of the efficiency of the miner relative to the current state of the art.
+Barring any drastic technological changes, miner performance has plateaued.
+Thus the utility returned by a miner is constant with time and only subject to its continued rated performance.
 
 Equation \ref{eq:11} can be appropriately discounted over the lifetime of the facility to provide and equivalent utility today.
 The selection of the discount rate is very important and should not be done using conventional values, especially if any bitcoin is used in making capital purchases.
 The reason why is that bitcoin is a long time preference currency \cite{ammous2018bitcoin}.
-If a facility is purchasing using bitcoin, the value of the purchase less its costs has to be greater than the bitcoin used to make the purchase.
+If a facility is purchased using bitcoin, the value of the purchase less its costs has to be greater than the bitcoin used to make the purchase.
 Because if one is investing any capital the alternative is to buy and hodl bitcoin.
 The investment has to beat that.
 For this reason and because utility is a conserved quantity, we express the total utility, $U_{total}$, as being,
@@ -725,7 +741,7 @@ We showed how to leverage this new tool in a novel model that accounts for the u
 It was always clear from the early days of bitcoin mining, how important the price of power is in mining.
 This paper hopefully shows how to approach bitcoin mining and its relationship to the electric grid as being symbiotic rather than parasitic.
 Grid integration is an incredibly complex subject as the markets can be complex, but we can select the guiding principle of being a good neighbor to provide a constructive approach to resolving the complexity.
-If we seek to understand the needs of electricity consumers, producers, and distributors, there are opportunities that allow bitcoin mining to limit power price fluctuations, while providing additional sources of revenue for the mine operator.
+If we seek to understand the needs of electricity consumers, producers, and distributors, there are opportunities that allow bitcoin mining to limit power price fluctuations, while providing additional sources of revenue for the miner operator.
 The relationship of the parties on the grid is not zero-sum especially when we consider contracts that include demand response provisions. 
 
 
