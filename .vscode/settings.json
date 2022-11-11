@@ -44,5 +44,6 @@
         "WACC",
         "Xeon",
         "Zacate"
-    ]
+    ],
+    "editor.wordWrap": "on"
 }

@@ -1,6 +1,9 @@
 \documentclass[runningheads]{llncs}
 %
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \newcommand{\code}[1]{\texttt{#1}}
 
 \def\bitcoin{
@@ -23,19 +26,20 @@
 %
 \authorrunning{C. Abel}
 %
-\institute{Skylane Engineering, LLC, Atlanta, GA 30345, USA
-    \email{crabel@skylaneengineering.com}\\
-    \url{https://skylaneengineering.com}}
+\institute{Signal Power and Light, Inc. Cordova, AL 35550, USA
+    \email{crabel@signalpowerandlight.com}\\
+    \url{https://signalpowerandlight.com}}
 %
 \maketitle
 %
 \begin{abstract}
     Bitcoin mining can be a difficult process to understand much less model.
     It is confounded by currency exchange rates and jurisdictional taxes along with rapid historical technological development.
-    This paper derives a framework for simplifying the modeling process.
-    It does so by first modeling trends in bitcoin miner performance showing that further gains in efficiency have plateaued.
-    It then derives the marginal utility of bitcoin treating the process of the block reward in a quantum mechanical framework.
-    Using the derived marginal utility, we present a universal cost basis and derive the economic model that formally takes into account uncertainty.
+    We present a framework for simplifying the economic modeling process for bitcoin.
+    To account for historical and potential future technological changes, we model trends in bitcoin miner performance showing that further gains in efficiency have plateaued.
+    Then, we derive the marginal value of bitcoin treating the process of the block reward in a quantum mechanical framework and show that the measure of bitcoin's value is the energy used to mine it.
+    Finally, we use the energy value of bitcoin to model the dollar price of bitcoin with a power law relationship over bitcoin's entire price history.
+
     %
     \keywords{bitcoin mining \and quantum mechanics \and statistical economics \and EROI \and Moore's Law.}
 \end{abstract}
@@ -47,30 +51,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Bitcoin mining has been something that has historically been relatively difficult to understand or to quantify the returns.
+Bitcoin mining has been something where it historically was relatively difficult to quantify the returns.
 The primary objective of this paper is to arrive at a methodology that is firmly rooted in first principles and is simple and intuitive in application.
 
-One of the chief problems that bitcoin has had is in managing the exchange rates and price fluctuations.
+Two of the chief problems that bitcoin valuation has are managing the exchange rates and price fluctuations.
 This has existed because the primary unit of account has not been fundamental and was tied to directly fiat currency.
-The primary objective of this paper is to establish a universal and absolute measure of bitcoin's utility.\footnote{
+The primary objective of this paper is to establish a universal and absolute measure of bitcoin's value.\footnote{
     For the code and data used to analyze the models see https://github.com/crabel99/BTC-Mining-Economics
 }
 
 This is far easier said than done.
-We need to understand how processing technology has evolved over time.
+We need to understand how mining computational technology has evolved over time.
 We will also discuss how to look at bitcoin mining in a more wholistic manner.
-We also need to understand how bitcoin mining works at its deepest and most fundamental level.
-Once we have these two components, we can derive the marginal utility of bitcoin.
+To do this, we need to first understand how bitcoin mining works at its deepest and most fundamental level.
+Once we have these two components, we can derive the marginal value of bitcoin.
 
-From here we will develop the economic model.
+From bitcoin's  measure of value, we will develop the economic model.
 We need to understand first how bitcoin mining can be integrated into the electric grid, as this understanding is what informs how we construct and think about the overall economic model.
-It provides the overall constraints with in which we have to work.
-This model will establish a cost basis using the universal metric of utility and simplify how we can account for the long term performance of the miners.
+By considering bitcoin mining as a part of the grid, we create the overall constraints with in which we have to work.
+This model establishes a cost basis using the universal metric of value, energy, and simplifies how we can account for the long term performance of the miners.
 
-The concluding model will formally take into account the known uncertainty of the model, providing an uncertainty adjusted metric for project evaluation.
-What is interesting is that this model shares a number of similarities with the concept of Energy Return on Investment, EROI.
-EROI is a dimensionless measure of the amount of energy that one gets out of a power plant divided by the amount of energy input into the power plant.
-One of the major shortfalls of EROI is that it does not take into account the uncertainty in the output of the generation source, which will be resolved by the approach taken here.
+% The final model considers the known uncertainty of our previous estimations, providing an uncertainty adjusted metric for project evaluation.
+% What is interesting is that this model shares a number of similarities with the concept of Energy Return on Investment, EROI.
+% EROI is a dimensionless measure of the amount of energy that one gets out of a power plant divided by the amount of energy input into the power plant.
+% One of the major shortfalls of EROI is that it does not take into account the uncertainty in the output of the generation source, which will be resolved by the approach taken here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Trends in Mining Performance
@@ -114,6 +118,9 @@ Because a transistor width consists of a minimum of three layers of atoms (NPN o
 With current transistors at $5$ nm. We are already on the same order of magnitude as the classical limit.
 Thus, further increases in transistor density are fundamentally limited as each transistor layer is now only about \emph{4 atoms wide}.
 There may be problems with doping the boron and phosphorous atoms into the transistors that will limit any further decrease in transistor size.
+
+Trends in processor development are towards changing the the transistor geometry.
+This will make the processors physically more dense, but because our scale is already at the atomic level, increases in power efficiency and clock speed are not likely.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Trends in Processor Performance
@@ -173,7 +180,7 @@ Their original dataset was updated with a selection of more recent miners, Table
 
 The fitted curve in Figure \ref{fig:3} is given by,
 \begin{equation}
-    \eta(t) = A + \frac{K - A}{1 + e^{-B(t - M)}}
+    \eta(t) = A + \frac{K - A}{1 + e^{-B(t - M)}} \label{eq:20}
 \end{equation}
 Where the parameters are $A = 0.01 \,\textrm{Mh/J}$, $K = 4.27\times 10^4 \,\textrm{Mh/J}$,  $B = 1.26 \,\textrm{a}^{-1}$, and $ M = 2019.2 \,\textrm{a}$.
 
@@ -234,7 +241,7 @@ The current method of air cooling has a very low Power Usage Effectiveness, PUE,
     This is based on private communication from Upstream Data, "2x 0.5 HP (0.745 kW) fans every 180 kW of PDU" (17 Nov 2021) and for an Antminer S19XP  which has 4 fans (assuming 2.7A @ 12V) ~ 130 W for 3.25 kW of 29.5 J/Th.}
 PUE is the ratio of the total power of the system to the power sent to the miners.
 Keep in mind this is using outside ambient air which is blown, filtered, through the miners.
-If air cooled system is moved from cold climates, the miners have to be under clocked to keep the chip temperatures in specification.
+If air cooled system is moved to warm climates, the miners have to be under clocked to keep the chip temperatures in specification.
 If air conditioning is used then the PUE significantly increases.
 
 The use of liquid cooling, including immersion, where the coolant is directly cooled in a cooling tower, reduces the PUE to $1.016$.
@@ -247,19 +254,19 @@ The PUE is important in the economic analysis because it is the energy overhead 
 While it is a small quantity in bitcoin mining applications, a 2.5--4 \% improvement in a process's energy efficiency is non trivial.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Bitcoin's Marginal Utility
+% Bitcoin's Marginal Value
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Bitcoin's Marginal Utility}
+\section{Bitcoin's Marginal Value}
 Now that we have covered some of the more granular details necessary for the foundations of the overall economic model, we have one more foundation to set.
 That foundation is to establish a consistent and stable metric for which to evaluate the value of the bitcoin mined.
-We will first look at estimating the marginal utility as being derived from on chain metrics.
+We will first look at estimating the marginal value as being derived from on chain metrics.
 Then we will look at establishing a more absolute measure.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % On Chain Metrics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{On Chain Metrics}
-Before we delve too far into developing the on chain metrics for marginal utility, we need to look at the process of how a block is discovered/mined.
+Before we delve too far into developing the on chain metrics for marginal value, we need to look at the process of how a block is discovered/mined.
 To be awarded a block a miner has to generate a random number called a nonce, number used once, and combine that into a specific structured 80 byte packet of data, the block header.
 The header is then hashed generating a unique 32 byte (256 bit) number for that data.
 The hashed number has to have a value less than target number, $Target$.
@@ -332,7 +339,7 @@ Which if $c_0 \gg 1$ equation \ref{eq:5} becomes:
     T = \frac{1}{c_0^2}. \label{eq:6}
 \end{equation}
 With equation \ref{eq:6}, we have recovered Definition \ref{def:1}, with the real quantum barrier potential being $c_0 = 2^{-16}\sqrt{Difficulty}$.
-We will revisit the quantum formulation once we have laid out the foundations for the statistics of how bitcoin measures utility and time in the next section.
+We will revisit the quantum formulation once we have laid out the foundations for the statistics of how bitcoin measures value and time in the next section.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Block Discovery as a Poisson Process
@@ -354,11 +361,11 @@ We note that the discovery of a suitable block header follows the exact same sta
 We note that the transmission probability of a winning block is defined by equation \ref{eq:3} and is uniform for all processors generating all hashes within a given difficulty epoch with a difficulty of $Difficulty$.
 Because the transmission probability is uniformly distributed expected time to discover a block for $k$ hashes is, 
 \begin{equation}
-    E(S_k - S_{k - 1}| \mathcal{H}(t) = H) = \frac{t}{H + 1}.\mbox{\cite{tijms2003first}}
+    \mathbb{E}\left[(S_k - S_{k - 1}| \mathcal{H}(t) = H\right] = \frac{t}{H + 1}.\mbox{\cite{tijms2003first}}
 \end{equation}
 Where $S_k$ is the random variable of the inverse hash rate for $1 < k < H$ attempts.
 
-Given that the number of hashes to discover a bock, $H$, is defined as $H \equiv 1/p_i$ and $t$ is the observed time between blocks.
+Given that the number of hashes to discover a block, $H$, is defined as $H \equiv 1/p_i$ and $t$ is the observed time between blocks.
 Because the hash rate, $\dot{H}$, is defined based upon the arrival of new blocks, we will assume that it is constant for a given block.
 Thus it will be a piecewise step function for each block in the blockchain.
 We can describe the mean of this function as being,
@@ -373,13 +380,39 @@ From Theorem 1.3.1 of \cite{tijms2003first}, we can describe the stepwise non st
 \end{equation}
 Where $\mathcal{H}$ is the random variable of the number of hashes and $\Delta t$ is some positive time step.
 
-By Theorem 1.1.1 of \cite{tijms2003first}, the expected number of block hashes for defined time period is,
+By Theorem 1.1.1 of \cite{tijms2003first}, the expected block hashes for each block in the $k^{\mathrm{th}}$ epoch is,\footnote{
+    We use the convention of geological time to define periods of time associated with the bitcoin network.
+    \emph{Era} like the Cenozoic, Mesozoic are equivalent concepts to currency eras: metallic era, fiat era, bitcoin era.
+    \emph{Period} like Quaternary or Tertiary within the bitcoin era are defined by the coin issuance or as they are colloquially known as ``halvenings'' and are $210\,000$ blocks long.
+    \emph{Epoch} like the Holocene or Pleistocene are equivalent to the difficulty adjustments done every $2\,016$ blocks.
+}
 \begin{eqnarray}
-    \langle H \rangle &=& \frac{1}{N}\Delta t \langle \dot{H} \rangle  \nonumber\\
-    \langle H \rangle &=& \frac{1}{N}\Delta t \frac{2^{32}Difficulty}{N} \sum_i \Delta t_i^{-1} \nonumber\\
-    \langle H \rangle &=& \frac{1}{N}\sum_j \Delta t_j \frac{2^{32}Difficulty}{N} \sum_i \Delta t_i^{-1} \label{eq:18}
+    \langle H_k \rangle &=& \frac{1}{N}\,\Delta t \langle \dot{H} \rangle  \nonumber\\
+    \langle H_k \rangle &=& \frac{1}{N}\,\Delta t\, \frac{2^{32}Difficulty_k}{N} \sum_{i\in N} \Delta t_i^{-1} \nonumber\\
+    \langle H_k \rangle &=& \frac{1}{N}\sum_{j \in N} \Delta t_j 2^{32}Difficulty_k\,\frac{1}{N} \sum_{i\in N} \Delta t_i^{-1} \label{eq:18}
 \end{eqnarray}
 
+Each epoch is defined by a block potential corresponding to the inverse probability of finding a block and is the expected hashes per block,
+\begin{equation}
+    V_{B,k} = 2^{32}\,Difficulty_k
+\end{equation}
+and has units of hashes/block.
+We can think of the term $I_{B,k}=\frac{1}{N} \sum_{i\in N} \Delta t_i^{-1}$ as the average block current within an epoch.
+
+Just like electrical current is the transmission of fundamental units of charge, Coulombs, the block current is the transmission of a similarly conserved object, a block.
+Bitcoin was designed to have a fixed block current of 1 block every $600$ seconds.
+
+The hash is thus analogous to energy as the block potential, and gives us Ohm's Law in a bitcoin context,
+\begin{equation}
+    P_{B_k} = V_{B,k}\,I_{B,k},
+\end{equation}
+and represents the average hash power per block in the $k^{\mathrm{th}}$ epoch.
+
+The miner potential, the inverse of Equation \ref{eq:20}, represents the potential between the thermodynamic system of the bitcoin network, brought into equilibrium with the surrounding economy through the miners.
+We can thus express the average power of the bitcoin network for a given epoch as
+\begin{equation}
+    P_k = \frac{1}{\eta_k}\,P_{B_k}.
+\end{equation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Measuring Time
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -412,47 +445,47 @@ Additionally, when we look at the data contained in the blockchain, we find that
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Computing Marginal Utility
+% Computing Marginal Value
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Computing Marginal Utility}\label{sect:3.2}
-To establish what the marginal utility is, we need to have a solid metric for measuring utility that is absolute in its measure and is a conserved quantity.
+\subsection{Computing Marginal Value}\label{sect:3.2}
+To establish what the marginal value is, we need to have a solid metric for measuring value that is absolute in its measure and is a conserved quantity.
 During our quantum mechanical discussion we showed that hashes, through the conservation of their current, are conserved.
-This is an absolute measure and we could use it to establish utility, however, this is only valid on chain.
+This is an absolute measure and we could use it to establish value, however, this is only valid on chain.
 We need a metric that is referenced to an absolute off chain.
 
-In Proof-of-Work coins, the hashes represent the proof of work.
+In Proof--of--Work coins, the hashes represent the proof--of--work.
 Because of the incredibly low transmission probability of a hash, there is a significant amount of computational effort that has to be expended to find the winning hash.
 This computational effort requires two things: capital investment in the equipment and energy to power the equipment.
 Energy is by far the single most important consideration in bitcoin mining.
 We previously related energy to hashes using historical data of bitcoin miner performance.
-So, we will adopt that function to estimate the utility of bitcoin in the real world.
+So, we will adopt that function to estimate the value of bitcoin in the real world.
 
-We now have everything that we need to define the per block marginal utility of bitcoin,
+We now have everything that we need to define the per block marginal value of bitcoin,
 \begin{definition}\label{def:3}
     \begin{equation}
         \lambda_{\mbox{\bitcoin},i} \equiv \frac{\langle \dot{H}_i \rangle  600\,[\mathrm{s}]}{Coinbase_i \eta(t_i)}.\label{eq:9}
     \end{equation}
 \end{definition}
-Where for the $i^{\mbox{th}}$ block, $\lambda_i$ is the marginal utility [MJ/BTC], $\langle \dot{H}_i \rangle$ is the block's average hashrate [Th/s], 600 is the number of seconds between nominal blocks, $\eta(t_i)$ is the miner efficiency [Mh/J], and $Coinbase$ is the sum of the {\tt utxos} [satoshi] in the block's first transaction, {\tt nTxOut}=0.
+Where for the $i^{\mbox{th}}$ block, $\lambda_i$ is the marginal value [MJ/BTC], $\langle \dot{H}_i \rangle$ is the block's average hashrate [Th/s], 600 is the number of seconds between nominal blocks, $\eta(t_i)$ is the miner efficiency [Mh/J], and $Coinbase$ is the sum of the {\tt utxos} [satoshi] in the block's first transaction, {\tt nTxOut}=0.
 The term {\tt utxo} stands for unspent transaction output. The $Coinbase_i$ needs to be divided by $10^8$ to convert from satoshi to BTC.
 
 We can see the results of Definition \ref{def:3} in Figure \ref{fig:5}.
-The presented histogram shows the per block variation of the marginal utility around the 14-day moving average of the marginal utility.
-We can project the growth in marginal utility from January 2014, block 278000, using an exponential model,
+The presented histogram shows the per block variation of the marginal value around the 14-day moving average of the marginal value.
+We can project the growth in marginal value from January 2014, block 278000, using an exponential model,
 \begin{equation}
     \lambda_{\mbox{\bitcoin}}(t) = 1.400\cdot 10^4 \, \textrm{MJ/BTC} \cdot e^{0.4319 \,[\textrm{a}^{-1}] (t - 2014\,[\textrm{a}])}\label{eq:15}
 \end{equation}
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{BTC Marginal Utility.pdf}
-    \caption{Histogram of the per block marginal utility plotted with the 14-day moving average. The vertical red lines represent halvenings.} \label{fig:5}
+    \includegraphics[width=\textwidth]{BTC Marginal Value.pdf}
+    \caption{Histogram of the per block marginal value plotted with the 14-day moving average. The vertical red lines represent halvenings.} \label{fig:5}
 \end{figure}
 
-The evaluation of the test data set residuals of the marginal utility projection, equation \ref{eq:15} can be seen in Figure \ref{fig:6}.
+The evaluation of the test data set residuals of the marginal value projection, equation \ref{eq:15} can be seen in Figure \ref{fig:6}.
 The model clearly represents a 8-year trend in the exponential growth of bitcoin's value.
 80\% of the time series data was used for developing the model.
 The remaining 20\% was used to evaluate the model which had an $R^2=0.780$, $p<2.2\cdot10^{-6}$, and normal residuals.
-This model predicts bitcoin's marginal utility will double every 1.44 years and has been doubling at such a rate for the past 8-years.
+This model predicts bitcoin's marginal value will double every 1.44 years and has been doubling at such a rate for the past 8-years.
 This trend will likely give way to the latter part of the sigmoid curve as this level of growth is fundamentally constrained by humanity's access to energy.
 
 \begin{figure}
@@ -461,51 +494,58 @@ This trend will likely give way to the latter part of the sigmoid curve as this 
         The model is given in equation \ref{eq:15}.} \label{fig:6}
 \end{figure}
 
-We can explore the relationship of bitcoin's marginal utility to price as well.
-For this we take the data from \cite{coin2022btcusd} and evaluate it against the marginal utility daily average for each day.\footnote{
+We can explore the relationship of bitcoin's marginal value to price as well.
+For this we take the data from \cite{coin2022btcusd} and evaluate it against the marginal value daily average for each day.\footnote{
     The additional 12-hours is so that the daily moving average represents the daily average.
 }
 Following the same convention as before, we use 80\% of the data for the training dataset and reserve 20\% for testing.
-Figure \ref{fig:7} shows the bitcoin price as a function of its marginal utility.
+Figure \ref{fig:7} shows the bitcoin price as a function of its marginal value.
 The graph is $\log - \log$ and the fitted model is to a power law relationship,
 \begin{equation}
-    price = 0.4965 \, \mathrm{USD/BTC} \cdot \lambda_{\mbox{\bitcoin}}^{0.7779}.\label{eq:16}
+    price = 0.49 \, \mathrm{USD/BTC} \cdot \lambda_{\mbox{\bitcoin}}^{0.78}.\label{eq:16}
 \end{equation}
 This left 855--days for evaluation.
 The resulting dataset had an $R^2=0.909$, $p<2.2 \cdot 10^{-6}$, and normal residuals.
 The graphical evaluation of the residuals is presented in Figure \ref{fig:8}.
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{BTC Price and Marginal Utility.pdf}
-    \caption{Comparison of Bitcoin's price and marginal utility from 18 July 2010 -- 28 March 2022.
-        The model is given in equation \ref{eq:16}.} \label{fig:7}
+    \includegraphics[width=\textwidth]{BTC Marginal Value-Price.pdf}
+    \caption{Comparison of Bitcoin's price and marginal value from 18 July 2010 -- 31 October 2022.
+    The red dot is the most recent data.
+    The model is given in equation \ref{eq:16}.} \label{fig:7}
 \end{figure}
 \begin{figure}
     \includegraphics[width=\textwidth]{BTC Price and Marginal Utility Fit Test.pdf}
-    \caption{Evaluation of the test dataset for the model predicting the present trend in the relationship between bitcoin's price and marginal utility.
+    \caption{Evaluation of the test dataset for the model predicting the present trend in the relationship between bitcoin's price and marginal value.
         The model is given in equation \ref{eq:16}.} \label{fig:8}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Measurement of Utility and Time
+% Simultaneous Measurement of Value and Time
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Measurement of Utility and Time}\label{sect:3.3}
-Because the measurement of utility depends upon the measurement of time and time depends on the measurement fo utility, we need to consider the consequences of their simultaneous measurement.
-From quantum game theory, we can show that utility's observable is the Hamiltonian operator \cite{abel2021entropy}.
-Because of this definition, utility and time are complementary measurements and are governed by the uncertainty principle,
+\subsection{Simultaneous Measurement of Value and Time}\label{sect:3.3}
+Because the measurement of value depends upon the measurement of time and time depends on the measurement of value, we need to consider the consequences of their simultaneous measurement.
+From quantum game theory, we can show that value's observable is the Hamiltonian operator \cite{abel2021entropy}.
+Because of this definition, value and time are complementary measurements and are governed by the uncertainty principle,
 \begin{equation}
-    \sigma_t \sigma_U \ge \frac{c}{2}.\label{eq:17}
+    \sigma_t \sigma_H \ge \frac{c}{2}.\label{eq:17}
 \end{equation}
 
 We need to consider the unadjusted hash rate to provide a common basis of comparison, because the network adjusts difficulty every epoch.
 If we did not do this, we would loose any meaningful comparison between epochs because each mining epoch is effectively measuring a different system due to the different potential, $c_0$, of the quantum barrier.
 We adjust equation \ref{eq:18} to represent this comparable hash rate as,
 \begin{equation}
-    \langle H_{\textrm{comp}} \rangle = \frac{1}{N}\sum_j \Delta t_j \frac{1}{N} \sum_i \Delta t_i^{-1}
+    \langle H_{\textrm{comp}} \rangle = \frac{1}{N}\sum_j \Delta t_j \frac{1}{N} \sum_i \Delta t_i^{-1} \label{eq:19}
 \end{equation}
 
-Examining the variance of comparable hashes and block time for each of difficulty epochs shows the network stabilizing after the first 40 difficulty adjustments with $\sigma_t \approx 240 \, \textrm{s}$, $\sigma_U \approx 0.61$, and $c \approx 290\,\textrm{s}$.
-
+Examining the variance of comparable hashes and block time for each of difficulty epochs shows the network stabilizing after the first 40 difficulty adjustments with $\sigma_t \approx 240 \, \textrm{s}$, $\sigma_H \approx 0.001\,s^{-1}$, and $c = \frac{1}{2}$.
+The observed distribution for the mining Plank's constant, $c$, is given in Figure \ref{fig:9}.
+It is unclear if $c = \frac{1}{2}$ represents a fundamental limit or if the actual limit is lower. 
+\begin{figure}
+    \includegraphics[width=\textwidth]{hbar Fit.pdf}
+    \caption{Evaluation of the estimated fit of the mining Plank's constant, $c$.
+        The model is given in equation \ref{eq:19}.} \label{fig:9}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Mining Economics
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -515,7 +555,7 @@ A bitcoin mining operation will have to convert bitcoin into fiat currency in or
 An alternative to converting accumulated bitcoin to fiat is to use the mined bitcoin as collateral for a loan to pay for operations.
 For the sake of simplicity we will look at a conventional mining operation that is funded through debt and equity with the fraction of equity being $\alpha$ and the fraction of debt being $1 - \alpha$.
 
-With the development in Section \ref{sect:3.2} of a relationship between bitcoin's marginal utility and price, one could use those relationships to do conventional economic forecasting for project evaluation.
+With the development in Section \ref{sect:3.2} of a relationship between bitcoin's marginal value and price, one could use those relationships to do conventional economic forecasting for project evaluation.
 While this presents a known path for comparison moving forward it will miss out on the benefits of the methods developed in this section. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -539,9 +579,9 @@ Demand response is when a consumer voluntarily shuts down or restricts their ope
 
 Because mining can have highly granular control over the clock frequency of the individual processors on the hash boards, a mining operation can have incredibly precise control over their power usage.
 This control can be tied in real time to the economic value of mining bitcoin (using market price API data from an exchange), and with the realtime price of power.
-For simplicity let us assume that the operator manages to negotiate a base power rate of $\$65/MW-hr$ \cite{eia2021elect}.
+For simplicity let us assume that the operator manages to negotiate a base power rate of $\$65/MW~h$ \cite{eia2021elect}.
 They then negotiate to begin demand response when the price of power reaches the realtime breakeven price using an agreed upon calculation.
-For example using an S19XP, as of 13 Dec 2021, this would be around $\$470/MW-hr$, but floats based on the network difficulty and market price.
+For example using an S19XP, as of 13 Dec 2021, this would be around $\$470/MW~h$, but floats based on the network difficulty and market price.
 
 The miners would then regulate their hashrate to maintain that price.
 They would first reduce their clock to the most efficient clock.
@@ -559,8 +599,8 @@ This would require careful negotiation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Power Plant Integration}
 In new power plant construction actually integrating the mining operation with the power plant can eliminate transmission losses and transmission costs.
-In the United States transmission costs amount to approximately $\$11/MW-hr$ \cite{ier2021transmission}, while transmission losses are 6\% \cite{worldbank2021losses}.
-This translates to an onsite cost of power of $\$50/MW-hr$.
+In the United States transmission costs amount to approximately $\$11/MW~h$ \cite{ier2021transmission}, while transmission losses are 6\% \cite{worldbank2021losses}.
+This translates to an onsite cost of power of $\$50/MW~h$.
 
 In this situation the power plant is the primary source of power and the grid is the backup.
 The mining operation would also benefit from directly accessing the power plant's water cooling system.
@@ -588,11 +628,11 @@ Meanwhile, the already strained grid went down in the surrounding region because
 \subsection{Common Cost Basis}
 This is a very complex problem to tackle.
 We are dealing with local currency, local currency inflation, changes in network hashing power, using bitcoin as a currency, tax implications of purchases using bitcoin, taking loans against bitcoin to prevent taxable events, volatile exchange rates, etc.
-The reason why we spent so much time formally developing the marginal utility of bitcoin in terms of $[MJ/\bitcoin]$ was to alleviate as much of the complexity as we could by providing a common measurable reference indicator.
+The reason why we spent so much time formally developing the marginal value of bitcoin in terms of $[MJ/\bitcoin]$ was to alleviate as much of the complexity as we could by providing a common measurable reference indicator.
 
-While $[MJ]$ and $[kW-hr]$ are both units of energy, we need to keep these concepts separate in terms of how and where they fit into the model.
-When referring to economic utility, the unit will always be $[MJ]$ it could also be written as $[MJ_U]$ to make the distinction more explicit.
-Measurements of electrical energy will always follow the SI convention with base units of $[W-hr]$, appended with the appropriate prefix denoting the order of magnitude.
+While $[MJ]$ and $[kW~h]$ are both units of energy, we need to keep these concepts separate in terms of how and where they fit into the model.
+When referring to economic value, the unit will always be $[MJ]$ it could also be written as $[MJ_E]$ to make the distinction more explicit.
+Measurements of electrical energy will always follow the SI convention with base units of $[W~h]$, appended with the appropriate prefix denoting the order of magnitude.
 
 We will look at converting things priced in local currency units to an energy basis, instead of traditional deflators such as the Consumer Price Index, CPI.
 Then we will develop a model for the net return on mining over the economic life of a miner.
@@ -608,14 +648,14 @@ The impact and roll of energy can be measured using traditional econometrics.
 In fact, 80\% of all economic activity is derived from the useful work input into the economy \cite{ayers2009engine}.
 And, the price of energy is the single most important factor affecting economic growth \cite{ayers2009engine}.
 
-For these reasons and also for the derivation of bitcoins value in terms of energy it is not unreasonable to consider using the cost of all useful work $[\$/MJ]$ into an economy as the basis of the marginal utility of a currency.
-In this case, exergy, useful work, is the unit of economic utility, just as it is for Bitcoin.
+For these reasons and also for the derivation of bitcoins value in terms of energy it is not unreasonable to consider using the cost of all useful work $[\$/MJ]$ into an economy as the basis of the marginal value of a currency.
+In this case, exergy, useful work, is the unit of economic value, just as it is for Bitcoin.
 The problem that we have is that this econometric measure is not published anywhere and to develop it would take a considerable amount of effort.
 Instead, we will use as a proxy the average price of electricity, as electricity is effectively pure exergy.
 For the purposes of this paper we will use the average price of electricity for all sectors as the value of the dollar \cite{eia2021browser}.
-To convert this into units of utility we will apply the following formula,
+To convert this into units of value we will apply the following formula,
 \begin{equation}
-    \lambda_{\$}(t) = \frac{3.6[\frac{\mathrm{MJ_U}}{\mathrm{kW-hr}}]}{Price(t)[\$/\mathrm{kW-hr}]}.\label{eq:10}
+    \lambda_{\$}(t) = \frac{3.6[\frac{\mathrm{MJ_U}}{\mathrm{kW~h}}]}{Price(t)[\$/\mathrm{kW~h}]}.\label{eq:10}
 \end{equation}
 
 In all analysis multiply any dollar priced item (including debt) by $\lambda_{\$}(t)$.
@@ -632,91 +672,91 @@ For a given miner hash rate, $\dot{h}_i$, the average miner reward can be expres
     \langle Reward_i \rangle & = & \frac{Difficulty_0}{Difficulty_i}\langle Reward_0 \rangle
 \end{eqnarray}
 
-If we combine this with Definition \ref{def:3}, we can express the utility $\langle U_i \rangle$ generated in the $i^{\mbox{th}}$ period as being,
+If we combine this with Definition \ref{def:3}, we can express the value $\langle E_i \rangle$ generated in the $i^{\mbox{th}}$ period as being,
 \begin{eqnarray}
-    \langle U_i \rangle &\equiv& \lambda_{\bitcoin, i} \langle Reward_i \rangle \\
-    \langle U_i \rangle &=& \frac{\eta_{\mathrm{miner}}}{\eta(t_i)} \frac{\dot{h}_i}{\dot{h}_0} \langle U_0 \rangle \label{eq:11}
+    \langle E_i \rangle &\equiv& \lambda_{\bitcoin, i} \langle Reward_i \rangle \\
+    \langle E_i \rangle &=& \frac{\eta_{\mathrm{miner}}}{\eta(t_i)} \frac{\dot{h}_i}{\dot{h}_0} \langle E_0 \rangle \label{eq:11}
 \end{eqnarray}
 Where $\eta_{\mathrm{miner}}$ is the miner efficiency.
-It is interesting to note that the average utility produced by each block is only a function of the efficiency of the miner relative to the current state of the art.
+It is interesting to note that the average value produced by each block is only a function of the efficiency of the miner relative to the current state of the art.
 Barring any drastic technological changes, miner performance has plateaued.
-Thus the utility returned by a miner is constant with time and only subject to its continued rated performance.
+Thus the value returned by a miner is constant with time and only subject to its continued rated performance.
 
-Equation \ref{eq:11} can be appropriately discounted over the lifetime of the facility to provide and equivalent utility today.
+Equation \ref{eq:11} can be appropriately discounted over the lifetime of the facility to provide and equivalent value today.
 The selection of the discount rate is very important and should not be done using conventional values, especially if any bitcoin is used in making capital purchases.
 The reason why is that bitcoin is a long time preference currency \cite{ammous2018bitcoin}.
 If a facility is purchased using bitcoin, the value of the purchase less its costs has to be greater than the bitcoin used to make the purchase.
 Because if one is investing any capital the alternative is to buy and hodl bitcoin.
 The investment has to beat that.
-For this reason and because utility is a conserved quantity, we express the total utility, $U_{total}$, as being,
+For this reason and because value is a conserved quantity, we express the total value, $E_{total}$, as being,
 \begin{equation}
-    U_{total} = \sum_i \langle U_{in,i} \rangle - U_{expenses,i}\label{eq:12}
+    E_{total} = \sum_i \langle E_{in,i} \rangle - E_{expenses,i}\label{eq:12}
 \end{equation}
-Where $U_{in,i}$ is the utility defined in equation \ref{eq:11} and $U_{expenses,i}$ is sum of all of the expenses incurred in that period of time.
+Where $E_{in,i}$ is the value defined in equation \ref{eq:11} and $E_{expenses,i}$ is sum of all of the expenses incurred in that period of time.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Minimizing Tax Liability
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Minimizing Tax Liability}
-Because of the tax complications with different jurisdictions, we will focus on the United States as it is now the single largest home to bitcoin mining.
-The Internal Revenue Service, IRS, taxes bitcoin as a capital investment through capital gains.
-We will use a tax rate of 20\%, $\eta_{tax} = 20\%$.
-The total quantity of bitcoin needed to make a purchase, $N_{total}$ is,
-\begin{equation}
-    N_{total} = \frac{N_{purchase}}{1-(1-\frac{CB}{price})\eta_{tax}}
-\end{equation}
-Where $CB$ is the cost basis, $price$ is the market price of bitcoin determined at the time of purchase, and $N_{purchase}$ is the number of bitcoin used to make the purchase.
+% \subsubsection{Minimizing Tax Liability}
+% Because of the tax complications with different jurisdictions, we will focus on the United States as it is now the single largest home to bitcoin mining.
+% The Internal Revenue Service, IRS, taxes bitcoin as a capital investment through capital gains.
+% We will use a tax rate of 20\%, $\eta_{tax} = 20\%$.
+% The total quantity of bitcoin needed to make a purchase, $N_{total}$ is,
+% \begin{equation}
+%     N_{total} = \frac{N_{purchase}}{1-(1-\frac{CB}{price})\eta_{tax}}
+% \end{equation}
+% Where $CB$ is the cost basis, $price$ is the market price of bitcoin determined at the time of purchase, and $N_{purchase}$ is the number of bitcoin used to make the purchase.
 
-If the cost basis of the bitcoin used is high enough, it makes sense to make the purchase directly with bitcoin.
-If the bitcoin was acquired with a very low cost basis then 25\% more bitcoin will have to be sold to cover the 20\% capital gains.
-We will assume the the latter case for further consideration as the former has trivial tax implications.
+% If the cost basis of the bitcoin used is high enough, it makes sense to make the purchase directly with bitcoin.
+% If the bitcoin was acquired with a very low cost basis then 25\% more bitcoin will have to be sold to cover the 20\% capital gains.
+% We will assume the the latter case for further consideration as the former has trivial tax implications.
 
-One would want to consider using Last In First Out Accounting, LIFO, accounting for the entity owning the miners.
-Using a bitcoin collateralized loan would make sense, provided the total cost of the loan was less than the tax that was avoided in bitcoin terms.
-For this strategy, the initial $U_{in,i}$ of equation \ref{eq:12} would be 0 as the revenue would go to repay the loan.
-As of this writing, bitcoin collateralized loans are around 11\% APR for a renewable 1-year loan.
+% One would want to consider using Last In First Out Accounting, LIFO, accounting for the entity owning the miners.
+% Using a bitcoin collateralized loan would make sense, provided the total cost of the loan was less than the tax that was avoided in bitcoin terms.
+% For this strategy, the initial $E_{in,i}$ of equation \ref{eq:12} would be 0 as the revenue would go to repay the loan.
+% As of this writing, bitcoin collateralized loans are around 11\% APR for a renewable 1-year loan.
 
-Where there is risk in this strategy is in the price movements of bitcoin.
-If the price of bitcoin (in dollars) goes up, then the loan is repaid much much more quickly.
-If the price of bitcoin goes down, then it will take longer for the loan to be repaid.
-And, If the price goes down far enough, more bitcoin would be needed to provide adequate collateral.
+% Where there is risk in this strategy is in the price movements of bitcoin.
+% If the price of bitcoin (in dollars) goes up, then the loan is repaid much much more quickly.
+% If the price of bitcoin goes down, then it will take longer for the loan to be repaid.
+% And, If the price goes down far enough, more bitcoin would be needed to provide adequate collateral.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Accounting for Uncertainty
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Accounting for Uncertainty}
-One of the failings of game theory and the concept of expected utility is that uncertainty is not formally taken into account with the model.
-This was recently resolved by applying a statistical approach to game theory \cite{abel2021entropy}.
-The result was that the uncertainty was accounted for with the economic Helmholtz potential \cite{abel2021entropy},
-\begin{equation}
-    F = U - T S. \label{eq:13}
-\end{equation}
-Where $F$ is the Helmholtz potential, $U$ is the utility, $T$ is the economic temperature, and $S$ is the entropy.
-The total utility is one of any of the options, e.g. selecting the miner, site location, hodling bitcoin, selling bitcoin, leveraging bitcoin, fluctuations in the price of power, lack of availability of power etc.
-All of the model's assumptions, priors, are represented as statistical distributions.
-The model then samples the distributions and generates an estimate of the projects total utility, $U_{total}$.
-The posterior distribution is the distribution of the $U_{total}$ from each sample.
-The entropy is the uncertainty of the choice, measured using Shannon's information entropy of the economic model's posterior distribution.
-The economic temperature, marginal utility of uncertainty can be taken directly as the value of capital expenditure for the project, $U_{expended}$.
+% \subsection{Accounting for Uncertainty}
+% One of the failings of game theory and the concept of expected value is that uncertainty is not formally taken into account with the model.
+% This was recently resolved by applying a statistical approach to game theory \cite{abel2021entropy}.
+% The result was that the uncertainty was accounted for with the economic Helmholtz potential \cite{abel2021entropy},
+% \begin{equation}
+%     F = E - T S. \label{eq:13}
+% \end{equation}
+% Where $F$ is the Helmholtz potential, $E$ is the value, $T$ is the economic temperature, and $S$ is the utility.
+% The total value is one of any of the options, e.g. selecting the miner, site location, hodling bitcoin, selling bitcoin, leveraging bitcoin, fluctuations in the price of power, lack of availability of power etc.
+% All of the model's assumptions, priors, are represented as statistical distributions.
+% The model then samples the distributions and generates an estimate of the projects total value, $E_{total}$.
+% The posterior distribution is the distribution of the $E_{total}$ from each sample.
+% The entropy is the uncertainty of the choice, measured using Shannon's information entropy of the economic model's posterior distribution.
+% The economic temperature, marginal value of uncertainty can be taken directly as the value of capital expenditure for the project, $E_{expended}$.
 
-This allows us to rewrite equation \ref{eq:13},
-\begin{eqnarray}
-    F &=& U_{total} - U_{expended} S, \\
-    \frac{F}{U_{expended}} &=& \frac{\langle U_{total}\rangle}{U_{expended}} - S. \label{eq:14}
-\end{eqnarray}
-The selection criteria is to choose the option with the greatest Helmholtz potential per unit of utility expended.
-It is important to note that the Utility Return on Investment, UROI, is $\frac{\langle U_{total}\rangle}{U_{expended}}$, and that it is modified to take into account uncertainty.
-The temperature acts as a measure to discount the uncertainty of the project.
-In this way a project with a high utility and high uncertainty, would be penalized much more than a project with a lower utility and a correspondingly lower uncertainty.
+% This allows us to rewrite equation \ref{eq:13},
+% \begin{eqnarray}
+%     F &=& E_{total} - E_{expended} S, \\
+%     \frac{F}{E_{expended}} &=& \frac{\langle E_{total}\rangle}{E_{expended}} - S. \label{eq:14}
+% \end{eqnarray}
+% The selection criteria is to choose the option with the greatest Helmholtz potential per unit of value expended.
+% It is important to note that the Value Return on Investment, VROI, is $\frac{\langle E_{total}\rangle}{E_{expended}}$, and that it is modified to take into account uncertainty.
+% The temperature acts as a measure to discount the uncertainty of the project.
+% In this way a project with a high value and high uncertainty, would be penalized much more than a project with a lower value and a correspondingly lower uncertainty.
 
-One caveat with this approach, the ability of being able to fully quantify the uncertainty is impossible as the entropy is not able to be measured \emph{ex ante}.
-Only a best estimate can be made.
+% One caveat with this approach, the ability of being able to fully quantify the uncertainty is impossible as the entropy is not able to be measured \emph{ex ante}.
+% Only a best estimate can be made.
 
-Equation \ref{eq:14} can just as easily be applied to the power plant economics.
-The entropy needs to include the forced outage rate of dispatchable generation sources.
-For non-dispatchable generators the power plant's output needs to be modeled with the probability distribution of the anticipated location's wind/solar characteristics.
-The significantly larger entropy of wind/solar drastically penalizes their economic potential.
-Reliability has a definite economic value.
+% Equation \ref{eq:14} can just as easily be applied to the power plant economics.
+% The entropy needs to include the forced outage rate of dispatchable generation sources.
+% For non-dispatchable generators the power plant's output needs to be modeled with the probability distribution of the anticipated location's wind/solar characteristics.
+% The significantly larger entropy of wind/solar drastically penalizes their economic potential.
+% Reliability has a definite economic value.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Conclusion
@@ -732,11 +772,11 @@ Air cooling, while effective for when chip designs were rapidly changing, is not
 We showed at a high level the need to shift to liquid cooling and suggest that miner construction be similar to that of a plate-frame heat exchanger to reduce material costs and improve the system's overall thermodynamic efficiency.
 
 We developed an analogy of bitcoin mining to that of radioactive decay including the use of the wave equation to describe the transmission probabilities of a hashed value less than the target value.
-This analogy allowed us to use the Poisson Point Process to derive an expression for the marginal utility of bitcoin.
+This analogy allowed us to use the Poisson Point Process to derive an expression for the marginal value of bitcoin.
 
-While the expression of marginal utility is ultimately quite profound, it allows us to express the economic considerations of miners across time very simply.
+While the expression of marginal value is ultimately quite profound, it allows us to express the economic considerations of miners across time very simply.
 It removes the complexity of the difficulty adjustments, miner subsidy, and currency exchange rates into a simple and powerful tool.
-We showed how to leverage this new tool in a novel model that accounts for the uncertainty of the associated generating asset used to power the miners.
+% We showed how to leverage this new tool in a novel model that accounts for the uncertainty of the associated generating asset used to power the miners.
 
 It was always clear from the early days of bitcoin mining, how important the price of power is in mining.
 This paper hopefully shows how to approach bitcoin mining and its relationship to the electric grid as being symbiotic rather than parasitic.
